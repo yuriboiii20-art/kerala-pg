@@ -52,22 +52,22 @@ function AnimatedRoutes({ onOpenBooking, onSelectRoom }) {
   // Dynamic SEO Page Title update on route change
   useEffect(() => {
     const titles = {
-      '/': 'Aafa Coliving | Premium PG in Jigani near HCL Gate Bengaluru',
+      '/': 'Aafa Coliving | FIND YOUR STAY — Pan-India Luxury Stays',
       '/rooms': 'Rooms & Pricing | 1BHK, 2BHK & Daily Stay ₹499/day — Aafa Coliving',
       '/food-menu': 'Weekly Homestyle Kerala Food Menu Schedule — Aafa Coliving',
       '/menu': 'Weekly Homestyle Kerala Food Menu Schedule — Aafa Coliving',
       '/amenities': 'Zero-Gravity Amenities | Wi-Fi, Generator & Kerala Mess — Aafa',
       '/gallery': 'Virtual Campus Photo Gallery | Bedrooms & Lounge — Aafa Coliving',
-      '/reviews': 'Verified Google Resident Reviews & Ratings — Aafa Coliving',
-      '/about': 'Our Story & Community Culture — Aafa Coliving Jigani',
-      '/blog': 'Life at Aafa & Jigani Relocation Guide — Aafa Coliving Blog',
-      '/contact': 'Contact Hotlines, Address & Directions near HCL Gate — Aafa Coliving',
+      '/reviews': 'Verified Resident Reviews & Ratings — Aafa Coliving',
+      '/about': 'Our Story & Community Culture — Aafa Coliving Pan-India',
+      '/blog': 'Life at Aafa & City Relocation Guides — Aafa Coliving Blog',
+      '/contact': 'Contact Hotlines, Address & Directions — Aafa Coliving',
       '/locations': 'Pan-India Locations & Expansion Map — Aafa Coliving',
       '/guidelines': 'House Guidelines & Resident Rules — Aafa Coliving',
       '/move-in': 'Move-In Process & Required Documents Checklist — Aafa Coliving',
       '/careers': 'Partner With Us & Property Franchise Portal — Aafa Group',
     };
-    document.title = titles[location.pathname] || 'Aafa Coliving | PG in Jigani Bengaluru';
+    document.title = titles[location.pathname] || 'Aafa Coliving | FIND YOUR STAY — Pan-India';
   }, [location.pathname]);
 
   return (

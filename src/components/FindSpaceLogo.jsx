@@ -7,7 +7,7 @@ import React from 'react';
 export default function FindSpaceLogo({
   className = 'w-4 h-4',
   rounded = 'rounded-md',
-  alt = 'Find Your Space',
+  alt = 'FIND YOUR STAY',
   ...props
 }) {
   return (

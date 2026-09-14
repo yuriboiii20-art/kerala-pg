@@ -21,7 +21,7 @@ export default function FindYourSpacePanel({
   className = '',
 }) {
   // 1. Location
-  const [location, setLocation] = useState(initialFilters.location || 'Jigani');
+  const [location, setLocation] = useState(initialFilters.location || 'all');
 
   // 2. Stay Type: 'day' | 'week' | 'month'
   const [stayType, setStayType] = useState(initialFilters.stayType || 'day');
@@ -80,15 +80,15 @@ export default function FindYourSpacePanel({
         <div className="flex items-center gap-2.5">
           <img
             src="/find-space-logo.png"
-            alt="Find Your Space"
+            alt="FIND YOUR STAY"
             className="w-9 h-9 rounded-xl object-contain shadow-md shadow-[#D4A64A]/25 shrink-0 border border-[#D4A64A]/40"
           />
           <div>
             <h3 className="text-base sm:text-lg font-bold font-sora text-[#FAF7F0] leading-tight">
-              Find Your Space
+              FIND YOUR STAY
             </h3>
             <p className="text-[11px] text-[#FAF7F0]/65 font-mono">
-              Direct booking in Jigani • No Brokerage • Zero Advance Hassle
+              Direct booking • Pan-India • No Brokerage • Zero Advance Hassle
             </p>
           </div>
         </div>
@@ -144,9 +144,14 @@ export default function FindYourSpacePanel({
                 onChange={(e) => setLocation(e.target.value)}
                 className="w-full px-3 py-2.5 rounded-xl bg-[#10192B] border border-white/15 text-xs sm:text-sm font-semibold text-[#FAF7F0] focus:border-[#D4A64A] outline-none cursor-pointer appearance-none pr-8"
               >
-                <option value="Jigani">Jigani (Near HCL Gate)</option>
-                <option value="Bengaluru">Bengaluru (All Areas)</option>
                 <option value="all">Pan-India (All Cities)</option>
+                <option value="Bengaluru">Bengaluru (Tech Corridor)</option>
+                <option value="Kochi">Kochi (InfoPark)</option>
+                <option value="Thiruvananthapuram">Thiruvananthapuram (Technopark)</option>
+                <option value="Kozhikode">Kozhikode (Cyberpark)</option>
+                <option value="Hyderabad">Hyderabad (Hitec City)</option>
+                <option value="Chennai">Chennai (OMR)</option>
+                <option value="Pune">Pune (Hinjawadi)</option>
               </select>
               <ChevronDown className="w-3.5 h-3.5 text-white/40 absolute right-2.5 top-1/2 -translate-y-1/2 pointer-events-none" />
             </div>

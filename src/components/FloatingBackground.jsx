@@ -6,25 +6,34 @@ export default function FloatingBackground() {
   const cursorBlobRef = useRef(null);
 
   useEffect(() => {
+    if (typeof window === 'undefined') return;
     if (window.matchMedia('(prefers-reduced-motion: reduce), (pointer: coarse)').matches) return;
-    const handleMouseMove = (e) => {
-      const { clientX, clientY } = e;
-      const targetX = clientX - 150;
-      const targetY = clientY - 150;
 
-      if (cursorBlobRef.current) {
-        gsap.to(cursorBlobRef.current, {
-          x: targetX,
-          y: targetY,
-          duration: 1.8,
-          overwrite: 'auto',
-          ease: 'power2.out',
-        });
-      }
+    let rafId;
+    const handleMouseMove = (e) => {
+      cancelAnimationFrame(rafId);
+      rafId = requestAnimationFrame(() => {
+        const { clientX, clientY } = e;
+        const targetX = clientX - 150;
+        const targetY = clientY - 150;
+
+        if (cursorBlobRef.current) {
+          gsap.to(cursorBlobRef.current, {
+            x: targetX,
+            y: targetY,
+            duration: 1.2,
+            overwrite: 'auto',
+            ease: 'power2.out',
+          });
+        }
+      });
     };
 
-    window.addEventListener('mousemove', handleMouseMove);
-    return () => window.removeEventListener('mousemove', handleMouseMove);
+    window.addEventListener('mousemove', handleMouseMove, { passive: true });
+    return () => {
+      cancelAnimationFrame(rafId);
+      window.removeEventListener('mousemove', handleMouseMove);
+    };
   }, []);
 
   return (
@@ -39,13 +48,13 @@ export default function FloatingBackground() {
       {/* Mouse Following Gravity Blob */}
       <div
         ref={cursorBlobRef}
-        className="absolute top-0 left-0 w-80 h-80 rounded-full bg-gradient-to-r from-amber-500/15 to-yellow-600/10 blur-[100px] transition-opacity duration-700"
+        className="absolute top-0 left-0 w-72 h-72 rounded-full bg-gradient-to-r from-amber-500/12 to-yellow-600/8 blur-[80px] transition-opacity duration-700 will-change-transform transform-gpu"
       />
 
       {/* Ambient Floating Orbs */}
-      <div className="absolute top-1/4 -left-20 w-96 h-96 rounded-full bg-amber-500/10 blur-[120px] animate-pulse-blob" />
-      <div className="absolute top-2/3 -right-20 w-[30rem] h-[30rem] rounded-full bg-blue-600/10 blur-[140px] animate-pulse-blob [animation-delay:3s]" />
-      <div className="absolute bottom-10 left-1/3 w-80 h-80 rounded-full bg-amber-400/10 blur-[110px] animate-pulse-blob [animation-delay:6s]" />
+      <div className="absolute top-1/4 -left-20 w-80 h-80 rounded-full bg-amber-500/8 blur-[90px] animate-pulse-blob will-change-transform transform-gpu" />
+      <div className="absolute top-2/3 -right-20 w-96 h-96 rounded-full bg-blue-600/8 blur-[100px] animate-pulse-blob [animation-delay:3s] will-change-transform transform-gpu" />
+      <div className="absolute bottom-10 left-1/3 w-72 h-72 rounded-full bg-amber-400/8 blur-[80px] animate-pulse-blob [animation-delay:6s] will-change-transform transform-gpu" />
 
       {/* Subtle Dust & Floating Star Spec Grid */}
       <div 
@@ -58,3 +67,4 @@ export default function FloatingBackground() {
     </div>
   );
 }
+

@@ -3,7 +3,7 @@ import { Search, Bed, Calendar, CheckCircle2 } from 'lucide-react';
 
 export default function BookingProgressSteps({ currentStep = 1, onStepClick }) {
   const steps = [
-    { number: 1, label: 'Find Your Space', icon: Search },
+    { number: 1, label: 'FIND YOUR STAY', icon: Search },
     { number: 2, label: 'Choose Room', icon: Bed },
     { number: 3, label: 'Choose Stay Plan', icon: Calendar },
     { number: 4, label: 'Confirm Booking', icon: CheckCircle2 },

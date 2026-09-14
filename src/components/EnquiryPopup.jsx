@@ -58,7 +58,7 @@ export default function EnquiryPopup({ isOpen, onClose }) {
       `📅 *Date:* ${data.visitDate}\n` +
       `⏰ *Time Slot:* ${data.timeSlot}\n` +
       `🛏️ *Interested In:* ${data.roomType}\n` +
-      `📍 *Campus:* Sannidhi Layout, Jigani near HCL Gate`
+      `📍 *Campus:* Sannidhi Layout, Bengaluru near HCL Gate`
     )}`;
     setTimeout(() => {
       window.open(whatsappUrl, '_blank', 'noopener,noreferrer');

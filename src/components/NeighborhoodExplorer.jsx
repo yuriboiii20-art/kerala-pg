@@ -20,13 +20,13 @@ export default function NeighborhoodExplorer() {
     },
     {
       id: 'biocon-park',
-      name: 'Biocon Park & Jigani Industrial Hub',
+      name: 'Biocon Park & Tech Industrial Corridor',
       category: 'tech',
       distance: '1.8 km',
       times: { walk: '18 mins', bike: '5 mins', car: '6 mins' },
       tag: 'Pharma & Tech Hub',
       icon: Building,
-      desc: 'Seamless direct commute along Jigani-Anekal main road.',
+      desc: 'Seamless direct commute along the main tech corridor road.',
     },
     {
       id: 'bommasandra-metro',
@@ -61,7 +61,7 @@ export default function NeighborhoodExplorer() {
     },
     {
       id: 'supermarkets',
-      name: 'Jigani Daily Market & Supermarkets',
+      name: 'Local Daily Market & Supermarkets',
       category: 'essential',
       distance: '400 Meters',
       times: { walk: '3 mins', bike: '1 min', car: '2 mins' },
@@ -82,13 +82,13 @@ export default function NeighborhoodExplorer() {
       <div className="text-center max-w-3xl mx-auto mb-10 sm:mb-14">
         <div className="inline-flex items-center gap-2 px-4 py-1.5 rounded-full glass-pill text-[#D4A64A] text-xs font-semibold uppercase tracking-wider mb-4">
           <Navigation className="w-4 h-4 text-[#D4A64A]" />
-          <span>Prime Jigani Location</span>
+          <span>Prime Tech Location</span>
         </div>
         <h2 className="text-2xl sm:text-5xl font-extrabold text-[#FAF7F0] mb-3 sm:mb-4 font-sora tracking-tight">
           2-Minute Walk to <span className="text-gradient-gold">HCL Gate</span>
         </h2>
         <p className="text-[#FAF7F0]/80 text-xs sm:text-base leading-relaxed">
-          Strategically located in Sannidhi Layout, Jigani — cut your daily commute to zero and reclaim your personal evening time.
+          Strategically located in Sannidhi Layout, Bengaluru — cut your daily commute to zero and reclaim your personal evening time.
         </p>
       </div>
 
@@ -221,13 +221,13 @@ export default function NeighborhoodExplorer() {
               Exact Address: Sannidhi Layout, Bande Nalla Sandra Rd
             </h4>
             <p className="text-xs sm:text-sm text-[#FAF7F0]/80">
-              Directly opposite Meghana PG, 300m before HCL Gate, Jigani, Bengaluru — 560105
+              Directly opposite Meghana PG, 300m before HCL Gate, Bengaluru — 560105
             </p>
           </div>
         </div>
 
         <a
-          href="https://maps.google.com/?q=Aafa+Coliving+Jigani+Bengaluru"
+          href="https://maps.google.com/?q=Aafa+Coliving+Bengaluru"
           target="_blank"
           rel="noopener noreferrer"
           className="px-6 py-3.5 rounded-2xl bg-[#D4A64A] text-[#0B1220] font-extrabold text-xs shrink-0 shadow-lg shadow-[#D4A64A]/25 hover:shadow-[#D4A64A]/45 hover:scale-105 transition-all flex items-center gap-2 btn-shimmer"

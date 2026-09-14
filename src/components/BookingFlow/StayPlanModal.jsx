@@ -174,7 +174,7 @@ Phone: *${phone}*
 Diet: *${diet}*
 ${note ? `Note: ${note}` : ''}
 
-Please confirm my room check-in availability at Jigani near HCL Gate. Thank you!`;
+Please confirm my room check-in availability across Pan-India campuses. Thank you!`;
     return encodeURIComponent(text);
   };
 

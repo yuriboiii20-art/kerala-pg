@@ -7,11 +7,11 @@ const ivory = '#FAF7F0';
 const timing = { extrapolateLeft: 'clamp', extrapolateRight: 'clamp', easing: Easing.bezier(0.22, 1, 0.36, 1) };
 const house = 'M 550 195 L 610 315 L 569 315 L 569 270 L 531 270 L 531 315 L 490 315 Z';
 
-export function LogoArtwork({ frame: elapsedFrame = LOGO_DURATION - 1, caption = 'AAFA COLIVING' }) {
+export function LogoArtwork({ frame: elapsedFrame = LOGO_DURATION - 1, caption = 'FIND YOUR STAY' }) {
   const frame = elapsedFrame / 1.5;
   const id = useId().replace(/:/g, '');
   return (
-    <svg viewBox="0 0 1400 600" width="100%" height="100%" role="img" aria-label="Kerala PG — AAFA Coliving">
+    <svg viewBox="0 0 1400 600" width="100%" height="100%" role="img" aria-label="Kerala PG — FIND YOUR STAY">
       <defs>
         <linearGradient id={`${id}-light`}><stop stopColor={gold} stopOpacity="0"/><stop offset=".5" stopColor="#FFF0BF"/><stop offset="1" stopColor={gold} stopOpacity="0"/></linearGradient>
         <clipPath id={`${id}-house`}><path d={house}/></clipPath>
@@ -93,11 +93,11 @@ export function KeralamMark({ className = 'w-4.5 h-4.5' }) {
  * Header / Navbar Logo Lockup with:
  * - Iconic Kerala house 'A' badge
  * - Signature KERALA PG vector wordmark
- * - Subtitle caption (e.g. "Jigani • Pan-India")
+ * - Subtitle caption (e.g. "FIND YOUR STAY • PAN-INDIA")
  */
 export function KeralamLogo({
   className = '',
-  caption = 'Jigani • Pan-India',
+  caption = 'FIND YOUR STAY • PAN-INDIA',
   showIcon = true,
   showCaption = true,
   size = 'default', // 'small' | 'default' | 'large'

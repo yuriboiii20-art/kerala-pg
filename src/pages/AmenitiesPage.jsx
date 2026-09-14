@@ -48,7 +48,7 @@ export default function AmenitiesPage({ onOpenBooking }) {
             Designed for <span className="text-gradient-gold">Uncompromised Living</span>
           </h1>
           <p className="text-[#FAF7F0]/80 text-sm sm:text-base leading-relaxed">
-            Every amenity at Aafa Coliving is engineered for maximum convenience, safety, and productivity near HCL Gate in Jigani.
+            Every amenity at Aafa Coliving is engineered for maximum convenience, safety, and productivity across all our Pan-India campuses.
           </p>
         </div>
 
@@ -117,7 +117,7 @@ export default function AmenitiesPage({ onOpenBooking }) {
         {/* CTA Card */}
         <div className="rounded-3xl glass-card border border-[#D4A64A]/30 p-8 text-center">
           <h2 className="text-2xl font-bold text-[#FAF7F0] font-sora mb-2">
-            Experience Zero-Gravity Living in Jigani Today
+            Experience Zero-Gravity Living Across Pan-India Today
           </h2>
           <p className="text-xs text-[#FAF7F0]/80 mb-6 max-w-xl mx-auto">
             Book your room or reserve a ₹499 daily stay plan with free breakfast included.

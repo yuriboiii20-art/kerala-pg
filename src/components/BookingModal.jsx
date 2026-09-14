@@ -134,7 +134,7 @@ export default function BookingModal({ isOpen, onClose, initialRoomTitle }) {
       `📅 *Move-In / Visit Date:* ${data.visitDate || 'Immediate / Asap'}\n` +
       `🍛 *Diet Preference:* ${data.dietPreference || 'Kerala Mix'}\n` +
       `🚶 *Tour Type:* ${data.tourType === 'in-person' ? 'In-Person Campus Walk' : 'WhatsApp Video Tour'}\n` +
-      `📍 *Campus:* Sannidhi Layout, Near HCL Gate, Jigani, Bengaluru\n` +
+      `📍 *Campus:* Sannidhi Layout, Near HCL Gate, Bengaluru (Pan-India)\n` +
       `----------------------------------------\n` +
       `⚡ *Status:* DISPATCHED & NOTIFIED TO MOBILE\n` +
       `Please confirm key allocation and check-in assistance.`
@@ -153,7 +153,7 @@ export default function BookingModal({ isOpen, onClose, initialRoomTitle }) {
     if (navigator.share && formData) {
       navigator.share({
         title: 'Aafa Coliving Booking Confirmation',
-        text: `My Aafa Coliving Booking Ref is ${bookingRef} for ${formData.roomType} in Jigani!`,
+        text: `My Aafa Coliving Booking Ref is ${bookingRef} for ${formData.roomType} across Pan-India!`,
         url: window.location.href,
       }).catch(() => {});
     } else {
@@ -500,7 +500,7 @@ export default function BookingModal({ isOpen, onClose, initialRoomTitle }) {
 
                 <div className="flex justify-between border-t border-white/10 pt-2 text-[11px]">
                   <span className="text-[#FAF7F0]/60">Campus Landmark</span>
-                  <span className="text-[#D4A64A]">300m from HCL Gate, Jigani</span>
+                  <span className="text-[#D4A64A]">300m from HCL Gate, Bengaluru</span>
                 </div>
               </div>
 

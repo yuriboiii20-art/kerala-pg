@@ -1,24 +1,39 @@
-import { useLayoutEffect } from 'react';
+import { useLayoutEffect, useId } from 'react';
 
-let locks = 0;
+const activeLocks = new Set();
 let previousBodyOverflow = '';
 let previousHtmlOverflow = '';
 
 export default function useScrollLock(active) {
+  const lockId = useId();
+
   useLayoutEffect(() => {
-    if (!active) return;
-    if (locks++ === 0) {
-      previousBodyOverflow = document.body.style.overflow;
-      previousHtmlOverflow = document.documentElement.style.overflow;
-      document.body.style.overflow = 'hidden';
-      document.documentElement.style.overflow = 'hidden';
+    if (typeof document === 'undefined') return;
+
+    if (active) {
+      if (activeLocks.size === 0) {
+        previousBodyOverflow = document.body.style.overflow;
+        previousHtmlOverflow = document.documentElement.style.overflow;
+        document.body.style.overflow = 'hidden';
+        document.documentElement.style.overflow = 'hidden';
+      }
+      activeLocks.add(lockId);
+    } else {
+      activeLocks.delete(lockId);
+      if (activeLocks.size === 0) {
+        document.body.style.overflow = previousBodyOverflow || '';
+        document.documentElement.style.overflow = previousHtmlOverflow || '';
+      }
     }
+
     return () => {
-      if (--locks === 0) {
+      activeLocks.delete(lockId);
+      if (activeLocks.size === 0) {
         document.body.style.overflow = previousBodyOverflow || '';
         document.documentElement.style.overflow = previousHtmlOverflow || '';
       }
     };
-  }, [active]);
+  }, [active, lockId]);
 }
+
 

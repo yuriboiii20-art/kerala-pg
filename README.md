@@ -7,7 +7,7 @@
 [![Three.js](https://img.shields.io/badge/Three.js-R3F-black?style=for-the-badge&logo=three.js)](https://threejs.org/)
 [![License](https://img.shields.io/badge/License-MIT-green?style=for-the-badge)](LICENSE)
 
-> **Aafa Coliving** is a state-of-the-art, antigravity glassmorphic web application built for Aafa Coliving & Rooms — Jigani’s premier coliving space located just **300 meters (2-minute walk) from HCL Gate**, Bengaluru. 
+> **Aafa Coliving** is a state-of-the-art, antigravity glassmorphic web application built for Aafa Coliving & Rooms — Pan-India’s premier coliving network located minutes from key tech hubs in Bengaluru and nationwide. 
 
 🌐 **Live Website**: [https://aafa-coliving.vercel.app/](https://aafa-coliving.vercel.app/)
 
@@ -38,7 +38,7 @@
 - **100% High-Res Dish Photography**: Curated Unsplash dish photography with click-to-enlarge lightbox modal.
 
 ### 🌆 5. Pan-India Expansion & Location Imagery (`locationsData.js`)
-- **Location-Tailored Photography**: High-res imagery for Bengaluru (Jigani), Pune (Hinjewadi), Mumbai (BKC), Delhi NCR (Cyber City), Chennai (OMR), and Kerala (Kochi Infopark).
+- **Location-Tailored Photography**: High-res imagery for Bengaluru, Pune (Hinjewadi), Mumbai (BKC), Delhi NCR (Cyber City), Chennai (OMR), and Kerala (Kochi Infopark).
 - **Pre-Launch Waitlist Lead Capture**: Priority notification form generating investor-ready lead data for upcoming campuses.
 
 ### 🔒 6. Client Admin Live CMS Drawer (`AdminCMSModal.jsx`)
@@ -97,7 +97,7 @@ Aafa Coliving/
 │   ├── pages/
 │   │   ├── AboutPage.jsx         # Founding Story & Culture
 │   │   ├── AmenitiesPage.jsx     # 12 Campus Feature Cards
-│   │   ├── BlogPage.jsx          # Jigani Relocation & Lifestyle Guides
+│   │   ├── BlogPage.jsx          # City Relocation & Lifestyle Guides
 │   │   ├── CareersPage.jsx       # Landlord Property Partner Portal
 │   │   ├── CityDetailsPage.jsx   # Dynamic City Page (/locations/:citySlug)
 │   │   ├── ContactPage.jsx       # Interactive Maps & Contact Hotlines
@@ -172,8 +172,8 @@ The output build directory is `dist/`.
 
 ## 📍 Campus Location & Direct Contact Hotlines
 
-- 📍 **Address**: In front of Meghana Gents & Ladies PG, Sannidhi Layout, 2, Bande Nalla Sandra Rd, near HCL Gate, Jigani, Bengaluru, Karnataka 560105
-- 🚶 **Distance**: 300 meters (2-minute walk) from HCL Gate in Jigani
+- 📍 **Address**: In front of Meghana Gents & Ladies PG, Sannidhi Layout, 2, Bande Nalla Sandra Rd, near HCL Gate, Bengaluru, Karnataka 560105
+- 🚶 **Distance**: 300 meters (2-minute walk) from HCL Gate in Bengaluru
 - 📞 **Direct Hotlines**:
   - `+91 87470 49377`
   - `+91 96861 93084`

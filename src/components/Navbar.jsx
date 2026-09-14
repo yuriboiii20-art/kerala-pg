@@ -49,7 +49,7 @@ export default function Navbar({ onOpenBooking }) {
     { name: 'Move-In Guide', path: '/move-in', desc: '4-Step Process & Documents', icon: UserCheck },
     { name: 'House Guidelines', path: '/guidelines', desc: 'Timings, Rules & Visitor Policy', icon: ShieldCheck },
     { name: 'Resident Reviews', path: '/reviews', desc: '⭐ 4.9 Verified Google Reviews', icon: Star },
-    { name: 'Life at Aafa Blog', path: '/blog', desc: 'Jigani Relocation Guides', icon: BookOpen },
+    { name: 'Life at Aafa Blog', path: '/blog', desc: 'Relocation & City Guides', icon: BookOpen },
     { name: 'Property Partnership', path: '/careers', desc: 'Franchise / Lease Your Property', icon: Building2 },
     { name: 'About Community', path: '/about', desc: 'Our Founding Story & Culture', icon: Sparkles },
   ];
@@ -70,9 +70,9 @@ export default function Navbar({ onOpenBooking }) {
         >
           <div className="flex items-center justify-between gap-3">
             
-            {/* Keralam Logo with Jigani Caption */}
+            {/* Keralam Logo with FIND YOUR STAY Caption */}
             <Link to="/" className="flex items-center group shrink-0" data-cursor="expand">
-              <KeralamLogo caption="Jigani • Pan-India" />
+              <KeralamLogo caption="FIND YOUR STAY • PAN-INDIA" />
             </Link>
 
             {/* Desktop Navigation Bar */}

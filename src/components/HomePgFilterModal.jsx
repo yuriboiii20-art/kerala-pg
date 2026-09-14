@@ -16,7 +16,7 @@ export default function HomePgFilterModal({ isOpen, onClose, onOpenBooking }) {
   // Simple Filter State (Matching Reference Design)
   const [selectedCategory, setSelectedCategory] = useState('rooms'); // 'pg' | 'coliving' | 'rooms'
   const [selectedCity, setSelectedCity] = useState('Bengaluru');
-  const [selectedArea, setSelectedArea] = useState('Jigani');
+  const [selectedArea, setSelectedArea] = useState('all');
   const [selectedGender, setSelectedGender] = useState('all'); // 'all' | 'boys' | 'girls' | 'coliving'
   const [selectedSharing, setSelectedSharing] = useState('2'); // 'all' | '1' | '2' | '3' | '4'
 
@@ -82,7 +82,7 @@ export default function HomePgFilterModal({ isOpen, onClose, onOpenBooking }) {
   const handleResetFilters = () => {
     setSelectedCategory('rooms');
     setSelectedCity('Bengaluru');
-    setSelectedArea('Jigani');
+    setSelectedArea('all');
     setSelectedGender('all');
     setSelectedSharing('2');
   };

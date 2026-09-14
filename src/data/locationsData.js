@@ -1,11 +1,11 @@
 export const locations = [
   {
-    slug: "jigani-bangalore",
+    slug: "bengaluru",
     city: "Bengaluru",
-    area: "Jigani (near HCL Gate)",
+    area: "Electronic City & HCL Gate",
     state: "Karnataka",
-    tagline: "Operational Flagship Campus near HCL Gate & Biocon Park",
-    address: "In front of Meghana Gents & Ladies PG, Sannidhi Layout, 2, Bande Nalla Sandra Rd, near HCL Gate, Jigani, Bengaluru, Karnataka 560105",
+    tagline: "Operational Flagship Campus near HCL Gate & Biocon Park (Pan-India Network)",
+    address: "In front of Meghana Gents & Ladies PG, Sannidhi Layout, 2, Bande Nalla Sandra Rd, near HCL Gate, Bengaluru, Karnataka 560105",
     phone: ["8747049377", "9686193084", "9745688880", "099000 82615"],
     hours: "7:00 AM - 11:00 PM, All Days",
     status: "live",
