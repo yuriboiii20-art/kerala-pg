@@ -12,8 +12,8 @@ export default function AboutPage() {
     },
     {
       year: '2022',
-      title: 'Jigani HCL Gate Expansion',
-      desc: 'Opened prime campus in Sannidhi Layout, Jigani, serving software engineers, bio-tech researchers, and students.'
+      title: 'Bengaluru Tech Hub Expansion',
+      desc: 'Opened prime flagship campus in Sannidhi Layout, Bengaluru, serving software engineers, bio-tech researchers, and students.'
     },
     {
       year: '2024',
@@ -23,7 +23,7 @@ export default function AboutPage() {
     {
       year: 'Present',
       title: '140+ Active Co-Movers',
-      desc: 'Maintaining a 4.9★ rating with zero hidden costs, daily housekeeping, and flexible ₹499/day daily stays.'
+      desc: 'Maintaining a 4.9★ rating with zero hidden costs, daily housekeeping, and flexible ₹499/day daily stays across Pan-India.'
     },
   ];
 
@@ -73,7 +73,7 @@ export default function AboutPage() {
                 More Than a PG — It's a Community
               </h3>
               <p className="opacity-90 text-sm sm:text-base leading-relaxed mb-6 font-medium">
-                Aafa Coliving is more than a PG — it's a community. Located minutes from HCL Gate in Jigani, we offer clean, comfortable, fully furnished rooms with authentic Kerala home-cooked meals, high-speed WiFi, and a warm, family-like environment for working professionals and students.
+                Aafa Coliving is more than a PG — it's a community. Located minutes from major IT and corporate corridors across Bengaluru and Pan-India, we offer clean, comfortable, fully furnished rooms with authentic Kerala home-cooked meals, high-speed WiFi, and a warm, family-like environment for working professionals and students.
               </p>
               <p className="opacity-75 text-xs sm:text-sm leading-relaxed">
                 Whether you choose a private 1BHK suite, a comfortable 2BHK twin room, a single room, or a flexible ₹499/day stay, our dedicated on-site team ensures your living experience is completely stress-free.

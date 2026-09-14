@@ -32,7 +32,7 @@ export default function Home({ onOpenBooking }) {
 
   // Dynamic Booking Flow State
   const [bookingFilters, setBookingFilters] = useState({
-    location: 'Jigani',
+    location: 'all',
     stayType: 'day',
     roomType: 'all',
     sharing: '2',
@@ -171,11 +171,11 @@ export default function Home({ onOpenBooking }) {
     },
     {
       q: 'How does the ₹499/day Daily Stay plan work?',
-      a: 'Ideal for short business trips, exams, or interview visits near HCL Gate in Jigani! The ₹499/day rate includes a clean furnished room + free Puttu, Dosa, or Uppumavu breakfast every morning with zero deposit.',
+      a: 'Ideal for short business trips, exams, or interview visits near Bengaluru tech corridors! The ₹499/day rate includes a clean furnished room + free Puttu, Dosa, or Uppumavu breakfast every morning with zero deposit.',
       category: 'pricing'
     },
     {
-      q: 'How far is Aafa Coliving from HCL Gate in Jigani?',
+      q: 'How far is Aafa Coliving from HCL Gate and major tech parks?',
       a: 'We are located right in Sannidhi Layout, just 300 meters (2-minute walk) from HCL Gate! Convenient for engineers, researchers, and corporate professionals.',
       category: 'location'
     },
@@ -269,8 +269,8 @@ export default function Home({ onOpenBooking }) {
               key={tab.id}
               onClick={() => setRoomCategoryTab(tab.id)}
               className={`px-3.5 py-1.5 rounded-xl text-xs font-bold whitespace-nowrap transition-all ${roomCategoryTab === tab.id
-                  ? 'bg-gradient-to-r from-[#D4A64A] to-amber-500 text-[#0B1220] shadow-md shadow-[#D4A64A]/30 scale-105'
-                  : 'glass-card text-[#FAF7F0]/70 hover:text-[#FAF7F0]'
+                ? 'bg-gradient-to-r from-[#D4A64A] to-amber-500 text-[#0B1220] shadow-md shadow-[#D4A64A]/30 scale-105'
+                : 'glass-card text-[#FAF7F0]/70 hover:text-[#FAF7F0]'
                 }`}
               data-cursor="expand"
             >
@@ -330,9 +330,8 @@ export default function Home({ onOpenBooking }) {
               <div className="pt-3 border-t border-white/10 flex items-center justify-between gap-2">
                 <div className="min-w-0">
                   <span className="text-[9px] font-mono text-[#FAF7F0]/60 uppercase">Rent</span>
-                  <p className={`font-extrabold text-[#D4A64A] font-sora truncate ${
-                    room.id === '1bhk-suite' ? 'text-xs sm:text-sm' : 'text-base'
-                  }`}>
+                  <p className={`font-extrabold text-[#D4A64A] font-sora truncate ${room.id === '1bhk-suite' ? 'text-xs sm:text-sm' : 'text-base'
+                    }`}>
                     {room.price} {room.id !== '1bhk-suite' && (
                       <span className="text-[10px] font-normal text-[#FAF7F0]/60">/{room.period}</span>
                     )}
@@ -570,7 +569,7 @@ export default function Home({ onOpenBooking }) {
 
           {/* Hero Branding Header + 3D Canvas Row */}
           <div className="flex flex-col lg:flex-row items-center justify-between gap-8 pb-2">
-            
+
             {/* Left Column: Brand Headline & Value Proposition */}
             <motion.div
               initial={{ opacity: 0, y: 15 }}
@@ -581,18 +580,12 @@ export default function Home({ onOpenBooking }) {
               {/* Top Pill Badge */}
               <div className="inline-flex items-center gap-2 px-3 py-1 rounded-full glass-pill text-[#D4A64A] text-[11px] font-semibold uppercase tracking-wider mb-3">
                 <FindSpaceLogo className="w-3.5 h-3.5" />
-                <span>Jigani • 300m to HCL Gate</span>
+                <span>PAN-INDIA • 300m to HCL Gate</span>
               </div>
 
-              {/* Master Headline */}
-              <h1 className="text-2xl sm:text-4xl lg:text-5xl font-extrabold text-[#FAF7F0] font-sora tracking-tight leading-[1.15] mb-2">
-                Aafa Coliving <br />
-                <span className="text-gradient-gold">Your Home Away From Home</span>
-              </h1>
-
-              {/* Concise Subheadline */}
-              <p className="text-[#FAF7F0]/85 text-xs sm:text-sm font-medium leading-relaxed mb-3 max-w-xl">
-                Fully furnished 1BHK, 2BHK, Single Rooms & ₹499/day Daily Stays in Jigani, Bengaluru — with authentic homestyle Kerala meals, 1Gbps fiber Wi-Fi & 100% generator power backup included.
+              {/* Main Description Paragraph */}
+              <p className="text-[#FAF7F0]/90 text-sm sm:text-base lg:text-lg font-normal leading-relaxed mb-5 max-w-2xl font-sora">
+                Discover premium coliving sanctuaries thoughtfully designed for working professionals, software engineers, and students across Pan-India. Experience fully furnished private suites, 2BHK sharing, single rooms, and flexible ₹499/day daily stay options  complete with authentic 3x daily Kerala homestyle meals, ultra-fast 1Gbps dual fiber Wi-Fi, 24/7 commercial generator power backup, daily professional housekeeping, and biometric facial access. Enjoy a hassle-free, fully managed living ecosystem built for peak productivity, comfort, and a genuine sense of belonging.
               </p>
 
               {/* Social Proof & Trust Badges */}
@@ -680,8 +673,8 @@ export default function Home({ onOpenBooking }) {
                       key={deck.id}
                       onClick={() => setActiveMasterDeck(deck.id)}
                       className={`p-3 sm:p-4 rounded-2xl text-left transition-all border relative flex flex-col justify-between ${isActive
-                          ? 'bg-gradient-to-br from-[#D4A64A]/30 via-amber-500/15 to-[#D4A64A]/5 border-[#D4A64A] shadow-lg shadow-[#D4A64A]/25 scale-[1.02]'
-                          : 'glass-card border-white/10 hover:border-white/20'
+                        ? 'bg-gradient-to-br from-[#D4A64A]/30 via-amber-500/15 to-[#D4A64A]/5 border-[#D4A64A] shadow-lg shadow-[#D4A64A]/25 scale-[1.02]'
+                        : 'glass-card border-white/10 hover:border-white/20'
                         }`}
                       data-cursor="expand"
                     >
@@ -710,8 +703,8 @@ export default function Home({ onOpenBooking }) {
                 <button
                   onClick={() => setDisplayMode('compact')}
                   className={`flex items-center gap-1.5 px-3 py-1.5 rounded-xl text-xs font-bold transition-all ${displayMode === 'compact'
-                      ? 'bg-[#D4A64A] text-[#0B1220] shadow-sm'
-                      : 'text-white/70 hover:text-white'
+                    ? 'bg-[#D4A64A] text-[#0B1220] shadow-sm'
+                    : 'text-white/70 hover:text-white'
                     }`}
                   title="Low-Scroll Interactive Tabs"
                 >
@@ -721,8 +714,8 @@ export default function Home({ onOpenBooking }) {
                 <button
                   onClick={() => setDisplayMode('expanded')}
                   className={`flex items-center gap-1.5 px-3 py-1.5 rounded-xl text-xs font-bold transition-all ${displayMode === 'expanded'
-                      ? 'bg-[#D4A64A] text-[#0B1220] shadow-sm'
-                      : 'text-white/70 hover:text-white'
+                    ? 'bg-[#D4A64A] text-[#0B1220] shadow-sm'
+                    : 'text-white/70 hover:text-white'
                     }`}
                   title="Traditional Continuous View"
                 >
@@ -760,8 +753,8 @@ export default function Home({ onOpenBooking }) {
                         key={st.id}
                         onClick={() => setLivingSubTab(st.id)}
                         className={`px-4 py-2 rounded-xl text-xs font-bold whitespace-nowrap transition-all ${livingSubTab === st.id
-                            ? 'bg-[#D4A64A] text-[#0B1220] shadow-md shadow-[#D4A64A]/30'
-                            : 'text-white/70 hover:text-white'
+                          ? 'bg-[#D4A64A] text-[#0B1220] shadow-md shadow-[#D4A64A]/30'
+                          : 'text-white/70 hover:text-white'
                           }`}
                       >
                         {st.label}
@@ -807,8 +800,8 @@ export default function Home({ onOpenBooking }) {
                         key={st.id}
                         onClick={() => setDiningSubTab(st.id)}
                         className={`px-4 py-2 rounded-xl text-xs font-bold transition-all ${diningSubTab === st.id
-                            ? 'bg-[#D4A64A] text-[#0B1220] shadow-md shadow-[#D4A64A]/30'
-                            : 'text-white/70 hover:text-white'
+                          ? 'bg-[#D4A64A] text-[#0B1220] shadow-md shadow-[#D4A64A]/30'
+                          : 'text-white/70 hover:text-white'
                           }`}
                       >
                         {st.label}
@@ -848,8 +841,8 @@ export default function Home({ onOpenBooking }) {
                         key={st.id}
                         onClick={() => setCampusSubTab(st.id)}
                         className={`px-4 py-2 rounded-xl text-xs font-bold whitespace-nowrap transition-all ${campusSubTab === st.id
-                            ? 'bg-[#D4A64A] text-[#0B1220] shadow-md shadow-[#D4A64A]/30'
-                            : 'text-white/70 hover:text-white'
+                          ? 'bg-[#D4A64A] text-[#0B1220] shadow-md shadow-[#D4A64A]/30'
+                          : 'text-white/70 hover:text-white'
                           }`}
                       >
                         {st.label}
@@ -886,8 +879,8 @@ export default function Home({ onOpenBooking }) {
                         key={st.id}
                         onClick={() => setReviewsSubTab(st.id)}
                         className={`px-4 py-2 rounded-xl text-xs font-bold whitespace-nowrap transition-all ${reviewsSubTab === st.id
-                            ? 'bg-[#D4A64A] text-[#0B1220] shadow-md shadow-[#D4A64A]/30'
-                            : 'text-white/70 hover:text-white'
+                          ? 'bg-[#D4A64A] text-[#0B1220] shadow-md shadow-[#D4A64A]/30'
+                          : 'text-white/70 hover:text-white'
                           }`}
                       >
                         {st.label}
@@ -933,7 +926,7 @@ export default function Home({ onOpenBooking }) {
                 <span>Move-In Ready Sanctuary</span>
               </div>
               <h2 className="text-3xl sm:text-5xl font-extrabold font-sora text-[#FAF7F0]">
-                Ready to Experience Stress-Free Living in Jigani?
+                Ready to Experience Stress-Free Living Across Pan-India?
               </h2>
               <p className="text-sm sm:text-base text-[#FAF7F0]/80 leading-relaxed">
                 Schedule a free campus visit today, sample our authentic Kerala lunch, or book your ₹499/day trial stay instantly.

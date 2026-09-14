@@ -5,7 +5,7 @@ import { MapPin, Compass, Users, Bed, Search, ArrowRight, ChevronDown, Check } f
 export default function SimpleFilterCard({
   initialCategory = 'rooms',
   initialCity = 'Bengaluru',
-  initialArea = 'Jigani',
+  initialArea = 'all',
   initialType = 'all',
   initialSharing = '2',
   onSearch,
@@ -38,14 +38,14 @@ export default function SimpleFilterCard({
     { value: 'Kochi', label: 'Kochi' },
     { value: 'Chennai', label: 'Chennai' },
     { value: 'Hyderabad', label: 'Hyderabad' },
-    { value: 'all', label: 'All Cities' },
+    { value: 'all', label: 'All Cities (Pan-India)' },
   ];
 
   const areaOptions = [
-    { value: 'Jigani', label: 'Jigani' },
+    { value: 'all', label: 'All Tech Corridors' },
     { value: 'Sannidhi Layout', label: 'Sannidhi Layout' },
     { value: 'Biocon Park', label: 'Biocon Park' },
-    { value: 'all', label: 'All Areas' },
+    { value: 'HCL Gate', label: 'HCL Gate Hub' },
   ];
 
   const typeOptions = [
@@ -356,14 +356,14 @@ export default function SimpleFilterCard({
 
       </div>
 
-      {/* 3. Primary CTA Button: Find Your Space */}
+      {/* 3. Primary CTA Button: FIND YOUR STAY */}
       <button
         type="button"
         onClick={handleApply}
         className="w-full py-3.5 sm:py-4 px-6 rounded-full bg-[#12372A] hover:bg-[#164333] active:scale-[0.99] text-white font-bold text-sm sm:text-base flex items-center justify-center gap-2.5 border border-emerald-500/30 shadow-lg shadow-emerald-950/40 transition-all cursor-pointer group"
       >
         <Search className="w-4 h-4 text-emerald-400 transition-transform group-hover:scale-110" />
-        <span>Find Your Space</span>
+        <span>FIND YOUR STAY</span>
         <ArrowRight className="w-4 h-4 text-emerald-400 transition-transform group-hover:translate-x-1" />
       </button>
 

@@ -91,7 +91,7 @@ export default function TestimonialsOrbit() {
           Loved by <span className="text-gradient-gold">500+ Co-Movers</span>
         </h2>
         <p className="text-[#FAF7F0]/80 text-xs sm:text-base leading-relaxed">
-          Here is what engineers, researchers, and creators say about daily living at Aafa Coliving Jigani.
+          Here is what engineers, researchers, and creators say about daily living at Aafa Coliving across Pan-India.
         </p>
 
         {/* Rating Breakdown Pill */}

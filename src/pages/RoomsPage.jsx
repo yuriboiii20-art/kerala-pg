@@ -19,7 +19,7 @@ export default function RoomsPage({ onOpenBooking }) {
       badge: 'Breakfast Free',
       image: 'https://images.unsplash.com/photo-1590490360182-c33d57733427?auto=format&fit=crop&w=800&q=80',
       includes: ['Hot Kerala Breakfast Included', 'Split AC / Fan Room', 'High-Speed 1Gbps Wi-Fi', 'Daily Clean Washroom', 'Zero Security Deposit', '300m Walk to HCL Gate'],
-      description: 'Ideal for short business trips, interviews, or trial stays in Jigani with fresh Puttu/Dosa breakfast included every morning.',
+      description: 'Ideal for short business trips, interviews, or trial stays across Pan-India with fresh Puttu/Dosa breakfast included every morning.',
       icon: Clock,
       highlight: true,
     },
@@ -68,7 +68,7 @@ export default function RoomsPage({ onOpenBooking }) {
     : plans.filter((p) => p.category === activeTab);
 
   const handleWhatsApp = (title) => {
-    const text = encodeURIComponent(`Hello Aafa Coliving Team! I am interested in checking availability for *${title}* in Jigani. Could you share current move-in dates?`);
+    const text = encodeURIComponent(`Hello Aafa Coliving Team! I am interested in checking availability for *${title}* across Pan-India. Could you share current move-in dates?`);
     window.open(`https://wa.me/918747049377?text=${text}`, '_blank', 'noopener,noreferrer');
   };
 
@@ -86,7 +86,7 @@ export default function RoomsPage({ onOpenBooking }) {
             Flexible Accommodation <span className="text-gradient-gold">Tailored for You</span>
           </h1>
           <p className="text-[#FAF7F0]/80 text-sm sm:text-base leading-relaxed">
-            Choose from 1BHK suites, 2BHK sharing, single private rooms, or flexible ₹499/day stays near HCL Gate in Jigani.
+            Choose from 1BHK suites, 2BHK sharing, single private rooms, or flexible ₹499/day stays across Pan-India.
           </p>
         </div>
 

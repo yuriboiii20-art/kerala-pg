@@ -27,7 +27,7 @@ export default function GuidelinesPage() {
             Resident House Guidelines <span className="text-gradient-gold">& Rules</span>
           </h1>
           <p className="text-[#FAF7F0]/80 text-base sm:text-lg">
-            Clear, respectful guidelines designed to ensure safety, hygiene, and harmony for all 140+ residents in Jigani.
+            Clear, respectful guidelines designed to ensure safety, hygiene, and harmony for all residents across Pan-India.
           </p>
         </div>
 

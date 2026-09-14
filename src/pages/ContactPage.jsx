@@ -53,10 +53,10 @@ export default function ContactPage() {
             <span>Direct Campus Contact & Directions</span>
           </div>
           <h2 className="text-3xl sm:text-5xl font-extrabold mb-6 font-sora tracking-tight">
-            Connect With <span className="text-gradient-gold">Aafa Coliving Jigani</span>
+            Connect With <span className="text-gradient-gold">Aafa Coliving Pan-India</span>
           </h2>
           <p className="opacity-80 text-base sm:text-lg">
-            Schedule a campus walk-through, enquire about room rates, or reserve your ₹499 daily stay near HCL Gate.
+            Schedule a campus walk-through, enquire about room rates, or reserve your ₹499 daily stay.
           </p>
         </div>
 
@@ -73,16 +73,16 @@ export default function ContactPage() {
                 </div>
                 <div>
                   <h3 className="text-xl font-bold font-sora">Aafa Coliving Campus</h3>
-                  <p className="text-xs text-[#D4A64A] font-mono">Near HCL Gate, Jigani</p>
+                  <p className="text-xs text-[#D4A64A] font-mono">Near HCL Gate & Electronic City, Bengaluru</p>
                 </div>
               </div>
               
               <p className="opacity-90 text-sm leading-relaxed mb-6 font-medium">
-                In front of Meghana Gents & Ladies PG, Sannidhi Layout, 2, Bande Nalla Sandra Rd, near HCL Gate, Bande Nalla Sandra, Jigani, Bengaluru, Karnataka 560105
+                In front of Meghana Gents & Ladies PG, Sannidhi Layout, 2, Bande Nalla Sandra Rd, near HCL Gate, Bande Nalla Sandra, Bengaluru, Karnataka 560105
               </p>
 
               <a
-                href="https://maps.google.com/?q=Sannidhi+Layout+2+Bande+Nalla+Sandra+Rd+Jigani+Bengaluru"
+                href="https://maps.google.com/?q=Sannidhi+Layout+2+Bande+Nalla+Sandra+Rd+Bengaluru"
                 target="_blank"
                 rel="noopener noreferrer"
                 className="inline-flex items-center justify-center gap-2 w-full py-3.5 rounded-xl bg-[#D4A64A]/15 text-[#D4A64A] hover:bg-[#D4A64A]/25 border border-[#D4A64A]/30 font-bold text-xs transition-all"
@@ -101,11 +101,11 @@ export default function ContactPage() {
               </h4>
               <div className="flex items-center gap-3 text-xs opacity-85">
                 <Car className="w-4 h-4 text-[#D4A64A] shrink-0" />
-                <span><strong>HCL Gate:</strong> 2 Minutes Walk / 300 Meters</span>
+                <span><strong>HCL Gate & Tech Parks:</strong> 2 Minutes Walk / 300 Meters</span>
               </div>
               <div className="flex items-center gap-3 text-xs opacity-85">
                 <Bus className="w-4 h-4 text-[#D4A64A] shrink-0" />
-                <span><strong>Jigani Bus Stop:</strong> 3 Minutes Auto / Direct BMTC Buses</span>
+                <span><strong>City Bus Terminals:</strong> 3 Minutes Auto / Direct BMTC Buses</span>
               </div>
             </div>
 
@@ -159,7 +159,7 @@ export default function ContactPage() {
                     Send Us an Instant Inquiry
                   </h3>
                   <p className="text-xs opacity-75 mt-1">
-                    Fill out your details below and our Jigani campus desk will respond within 15 minutes.
+                    Fill out your details below and our campus desk will respond within 15 minutes.
                   </p>
                 </div>
 
@@ -273,7 +273,7 @@ export default function ContactPage() {
                   Inquiry Submitted!
                 </h3>
                 <p className="opacity-80 text-sm mb-6 max-w-md mx-auto">
-                  Thank you for reaching out to Aafa Coliving Jigani. Our team will contact you shortly.
+                  Thank you for reaching out to Aafa Coliving. Our team will contact you shortly.
                 </p>
 
                 <div className="p-4 rounded-2xl glass-card border border-white/10 mb-6 text-left max-w-sm mx-auto">
@@ -300,8 +300,8 @@ export default function ContactPage() {
         {/* Embedded Google Map */}
         <div className="h-[450px] rounded-3xl overflow-hidden glass-card border border-[#FAF7F0]/15 p-2 shadow-2xl">
           <iframe
-            title="Aafa Coliving Jigani Location Map"
-            src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3890.0415712213797!2d77.63515287588383!3d12.789875172535073!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x3bae6f5415555555%3A0x123456789abcdef!2sJigani%2C%20Bengaluru%2C%20Karnataka!5e0!3m2!1sen!2sin!4v1700000000000!5m2!1sen!2sin"
+            title="Aafa Coliving Campus Location Map"
+            src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3890.0415712213797!2d77.63515287588383!3d12.789875172535073!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x3bae6f5415555555%3A0x123456789abcdef!2sBengaluru%2C%20Karnataka!5e0!3m2!1sen!2sin!4v1700000000000!5m2!1sen!2sin"
             width="100%"
             height="100%"
             style={{ border: 0, borderRadius: '1.25rem' }}

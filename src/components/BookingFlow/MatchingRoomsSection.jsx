@@ -21,7 +21,7 @@ import { allEnrichedListings } from '../../data/pgListingsData';
 
 export default function MatchingRoomsSection({
   filters = {
-    location: 'Jigani',
+    location: 'all',
     stayType: 'day',
     roomType: 'all',
     sharing: '2',
@@ -166,7 +166,7 @@ export default function MatchingRoomsSection({
               Search All of Bengaluru
             </button>
             <button
-              onClick={() => onEditFilters({ roomType: 'all', sharing: 'all', gender: 'all', location: 'Jigani' })}
+              onClick={() => onEditFilters({ roomType: 'all', sharing: 'all', gender: 'all', location: 'all' })}
               className="px-4 py-2 rounded-xl bg-gradient-to-r from-[#D4A64A] to-amber-500 text-[#0B1220] font-bold text-xs transition-all cursor-pointer"
             >
               Reset to Recommended

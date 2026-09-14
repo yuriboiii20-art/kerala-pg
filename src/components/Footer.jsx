@@ -11,7 +11,7 @@ export default function Footer({ onOpenBooking, onOpenAdminCMS }) {
   const socialLinks = [
     {
       name: 'WhatsApp Direct',
-      url: 'https://wa.me/918747049377?text=Hello%20Aafa%20Coliving%20Team!%20I%20am%20interested%20in%20room%20availability%20in%20Jigani.',
+      url: 'https://wa.me/918747049377?text=Hello%20Aafa%20Coliving%20Team!%20I%20am%20interested%20in%20room%20availability.',
       svg: (
         <svg className="w-4 h-4 fill-current" viewBox="0 0 24 24">
           <path d="M.057 24l1.687-6.163c-1.041-1.804-1.588-3.849-1.587-5.946.003-6.556 5.338-11.891 11.893-11.891 3.181.001 6.167 1.24 8.413 3.488 2.245 2.248 3.481 5.236 3.48 8.414-.003 6.557-5.338 11.892-11.893 11.892-1.99-.001-3.951-.5-5.688-1.448l-6.305 1.654zm6.597-3.807c1.676.995 3.276 1.591 5.392 1.592 5.448 0 9.886-4.434 9.889-9.885.002-5.462-4.415-9.89-9.881-9.892-5.452 0-9.887 4.434-9.889 9.884-.001 2.225.651 3.891 1.746 5.634l-1.137 4.153 4.14-1.086zm11.215-5.609c-.287-.144-1.7-.838-1.963-.934-.264-.096-.456-.144-.647.144-.192.288-.744.934-.912 1.126-.168.192-.336.216-.624.072-.287-.144-1.21-.446-2.306-1.423-.853-.761-1.428-1.701-1.596-1.989-.168-.288-.018-.444.126-.587.13-.13.288-.336.432-.504.144-.168.192-.288.288-.48.096-.192.048-.36-.024-.504-.072-.144-.648-1.56-.888-2.136-.234-.56-.472-.484-.648-.493l-.552-.01c-.192 0-.504.072-.768.36-.264.288-1.008.984-1.008 2.4 0 1.416 1.032 2.784 1.176 2.976.144.192 2.032 3.102 4.921 4.35.688.297 1.224.474 1.642.607.69.22 1.318.189 1.815.115.554-.083 1.7-.695 1.94-1.366.24-.672.24-1.248.168-1.367-.072-.12-.264-.192-.552-.336z"/>
@@ -52,7 +52,7 @@ export default function Footer({ onOpenBooking, onOpenAdminCMS }) {
             </div>
             <div>
               <h3 className="text-lg sm:text-xl font-bold font-sora text-[#FAF7F0]">
-                Need Room Availability in Jigani Right Now?
+                Need Room Availability Across Pan-India Right Now?
               </h3>
               <p className="text-xs sm:text-sm text-[#FAF7F0]/75">
                 Instant confirmation on your mobile phone via WhatsApp & SMS.
@@ -70,7 +70,7 @@ export default function Footer({ onOpenBooking, onOpenAdminCMS }) {
             </button>
 
             <a
-              href="https://wa.me/918747049377?text=Hello%20Aafa%20Coliving!%20I%20am%20looking%20for%20room%20availability%20in%20Jigani."
+              href="https://wa.me/918747049377?text=Hello%20Aafa%20Coliving!%20I%20am%20looking%20for%20room%20availability."
               target="_blank"
               rel="noopener noreferrer"
               className="w-full sm:w-auto px-5 py-3.5 rounded-2xl glass-card border border-emerald-500/30 text-emerald-300 hover:bg-emerald-500/15 font-bold text-xs flex items-center justify-center gap-2 transition-all"
@@ -91,15 +91,15 @@ export default function Footer({ onOpenBooking, onOpenAdminCMS }) {
         <div className="sm:col-span-2 lg:col-span-4 flex flex-col items-start">
           
           <Link to="/" className="flex items-center mb-4 group" data-cursor="expand">
-            <KeralamLogo caption="Jigani • Near HCL Gate" />
+            <KeralamLogo caption="FIND YOUR STAY • PAN-INDIA" />
           </Link>
 
           <p className="text-[#D4A64A] text-xs font-semibold leading-relaxed mb-3 italic">
-            "Your Home Away From Home — Comfort, Community, and Kerala Cuisine."
+            "FIND YOUR STAY — Comfort, Community, and Pan-India Living."
           </p>
 
           <p className="text-[#FAF7F0]/75 text-xs leading-relaxed mb-6">
-            Fully furnished 1BHK, 2BHK sharing, Single Rooms & ₹499/day daily stays with 3x daily fresh Kerala meals, 1GBPS dual fiber Wi-Fi, and 100% commercial generator power backup in Jigani, Bengaluru.
+            Fully furnished 1BHK, 2BHK sharing, Single Rooms & ₹499/day daily stays with 3x daily fresh Kerala meals, 1GBPS dual fiber Wi-Fi, and 100% commercial generator power backup across Pan-India.
           </p>
 
           {/* Trust Proof Badges */}
@@ -188,7 +188,7 @@ export default function Footer({ onOpenBooking, onOpenAdminCMS }) {
               <div className="flex items-start gap-2.5">
                 <MapPin className="w-4 h-4 text-[#D4A64A] shrink-0 mt-0.5" />
                 <p className="text-[#FAF7F0]/85 leading-relaxed">
-                  Sannidhi Layout, Bande Nalla Sandra Rd, in front of Meghana PG, 300m from HCL Gate, Jigani, Bengaluru — 560105
+                  Sannidhi Layout, Bande Nalla Sandra Rd, in front of Meghana PG, 300m from HCL Gate, Bengaluru — 560105
                 </p>
               </div>
 
@@ -221,7 +221,7 @@ export default function Footer({ onOpenBooking, onOpenAdminCMS }) {
           </div>
 
           <a
-            href="https://maps.google.com/?q=Sannidhi+Layout+2+Bande+Nalla+Sandra+Rd+Jigani+Bengaluru"
+            href="https://maps.google.com/?q=Sannidhi+Layout+2+Bande+Nalla+Sandra+Rd+Bengaluru"
             target="_blank"
             rel="noopener noreferrer"
             className="inline-flex items-center justify-center gap-2 w-full py-3 rounded-xl bg-[#D4A64A]/15 text-[#D4A64A] hover:bg-[#D4A64A]/25 border border-[#D4A64A]/30 font-bold text-xs transition-all"

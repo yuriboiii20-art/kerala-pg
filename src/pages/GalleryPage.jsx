@@ -114,7 +114,7 @@ export default function GalleryPage() {
             Take a Virtual Walk Through <span className="text-gradient-gold">Aafa Coliving</span>
           </h2>
           <p className="opacity-80 text-base sm:text-lg">
-            Real photos of our bedrooms, attached bathrooms, dining mess, gaming lounge, and rooftop terrace in Jigani.
+            Real photos of our bedrooms, attached bathrooms, dining mess, gaming lounge, and rooftop terrace across Pan-India.
           </p>
         </div>
 

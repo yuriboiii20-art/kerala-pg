@@ -14,7 +14,7 @@ export default function ReviewsPage() {
   const reviews = [
     {
       name: 'Rohan Kurien',
-      role: 'Senior Frontend Engineer @ HCL Jigani',
+      role: 'Senior Frontend Engineer @ Tech Corridor',
       stay: 'Resident for 1.2 Years',
       rating: 5,
       avatar: 'https://images.unsplash.com/photo-1534528741775-53994a69daeb?auto=format&fit=crop&w=200&q=80',
@@ -27,7 +27,7 @@ export default function ReviewsPage() {
       stay: 'Resident for 9 Months',
       rating: 5,
       avatar: 'https://images.unsplash.com/photo-1517841905240-472988babdf9?auto=format&fit=crop&w=200&q=80',
-      quote: 'As a woman moving to Jigani for my first job, safety was my main concern. The biometric facial access, 24/7 CCTV, and friendly housekeeping made me feel completely secure.',
+      quote: 'As a woman moving to Bengaluru for my first job, safety was my main concern. The biometric facial access, 24/7 CCTV, and friendly housekeeping made me feel completely secure.',
       room: '2 BHK Sharing'
     },
     {
@@ -64,7 +64,7 @@ export default function ReviewsPage() {
             Loved by <span className="text-gradient-gold">500+ Co-Movers</span>
           </h2>
           <p className="text-[#FAF7F0]/80 text-base sm:text-lg">
-            Real stories and unedited reviews from IT professionals, engineers, and students living at Aafa Coliving Jigani.
+            Real stories and unedited reviews from IT professionals, engineers, and students living at Aafa Coliving across Pan-India.
           </p>
         </div>
 
@@ -82,7 +82,7 @@ export default function ReviewsPage() {
                 <span className="text-sm font-bold text-[#D4A64A] ml-2 font-mono">4.9 / 5.0</span>
               </div>
               <h3 className="text-xl font-bold font-sora text-[#FAF7F0]">Verified Google Maps Listing</h3>
-              <p className="text-xs text-[#FAF7F0]/70">Based on 140+ resident reviews in Jigani, Bengaluru.</p>
+              <p className="text-xs text-[#FAF7F0]/70">Based on 140+ resident reviews across Pan-India campuses.</p>
             </div>
           </div>
 

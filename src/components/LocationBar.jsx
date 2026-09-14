@@ -234,7 +234,7 @@ export default function LocationBar({ isOpen, onClose, onSelectCity }) {
           <div className="mt-4 pt-4 border-t border-white/10 flex flex-col sm:flex-row items-center justify-between gap-3 text-xs">
             <div className="flex items-center gap-2 text-[#FAF7F0]/75 text-center sm:text-left">
               <FindSpaceLogo className="w-4 h-4 shrink-0" />
-              <span>Headquarters: Sannidhi Layout, 300m from HCL Gate, Jigani, Bengaluru</span>
+              <span>Headquarters: Sannidhi Layout, 300m from HCL Gate, Bengaluru (Pan-India)</span>
             </div>
 
             <Link

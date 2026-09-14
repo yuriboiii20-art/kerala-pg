@@ -8,7 +8,7 @@ export default function AIChatbot({ onOpenBooking }) {
   const [messages, setMessages] = useState([
     {
       sender: 'bot',
-      text: "Namaste! 🙏 Welcome to Aafa Coliving Jigani. I'm your front-desk AI concierge. How can we help you with room pricing, Kerala food menu, location near HCL Gate, or ₹499 daily stays today?",
+      text: "Namaste! 🙏 Welcome to Aafa Coliving. I'm your front-desk AI concierge. How can we help you with room pricing, Kerala food menu, Pan-India locations, or ₹499 daily stays today?",
     },
   ]);
   const [input, setInput] = useState('');
@@ -33,15 +33,15 @@ export default function AIChatbot({ onOpenBooking }) {
     }
 
     if (q.includes('price') || q.includes('cost') || q.includes('rate') || q.includes('rent')) {
-      return "Here are our room options at Aafa Coliving Jigani:\n• Daily Stay ⭐: ₹499/day (Free Breakfast Included)\n• 2 BHK Sharing: ₹7,499/month (3x Kerala Meals Included)\n• Single Room: ₹11,499/month (3x Kerala Meals Included)\n• 1 BHK Suite: Monthly rate with full privacy & kitchenette.\n\nWould you like me to connect you with our team for a quick call or room visit?";
+      return "Here are our room options at Aafa Coliving:\n• Daily Stay ⭐: ₹499/day (Free Breakfast Included)\n• 2 BHK Sharing: ₹7,499/month (3x Kerala Meals Included)\n• Single Room: ₹11,499/month (3x Kerala Meals Included)\n• 1 BHK Suite: Monthly rate with full privacy & kitchenette.\n\nWould you like me to connect you with our team for a quick call or room visit?";
     }
 
     if (q.includes('food') || q.includes('menu') || q.includes('eat') || q.includes('meal') || q.includes('kerala')) {
       return "We serve 3x daily fresh homestyle Kerala meals prepared in-house!\n• Mon: Puttu & Kadala Curry\n• Wed: Meen (Fish) Curry & Rice | Veg Biryani\n• Sat: Dosa & Chutney | Majboos\n• Sun: Sunday Malabar Biryani & Evening Pazham Pori!\n\nWant to book a visit to sample our food and check out the rooms?";
     }
 
-    if (q.includes('location') || q.includes('address') || q.includes('hcl') || q.includes('where') || q.includes('jigani')) {
-      return "We are located right in Sannidhi Layout, Jigani, Bengaluru — just a 2-minute walk (300 meters) from HCL Gate! Address: In front of Meghana PG, Bande Nalla Sandra Rd, Jigani 560105.\n\nWould you like me to share directions or set up a visit?";
+    if (q.includes('location') || q.includes('address') || q.includes('hcl') || q.includes('where')) {
+      return "Our flagship campus is located right in Sannidhi Layout, Bengaluru — just a 2-minute walk (300 meters) from HCL Gate! Address: In front of Meghana PG, Bande Nalla Sandra Rd, Bengaluru 560105. We are also expanding across Pan-India!\n\nWould you like me to share directions or set up a visit?";
     }
 
     if (q.includes('daily') || q.includes('499') || q.includes('short')) {
@@ -52,7 +52,7 @@ export default function AIChatbot({ onOpenBooking }) {
       return "You can call or WhatsApp our front-desk team directly at:\n📞 8747049377\n📞 9686193084\n📞 9745688880\nDesk Hours: Open 7 AM – 11 PM every day.\n\nWould you like us to give you a quick call back?";
     }
 
-    return "Thank you for reaching out! We offer fully furnished rooms, 1GBPS Wi-Fi, 100% generator backup, and 3x daily Kerala meals in Jigani near HCL Gate (₹499/day Daily Stays & monthly plans).\n\nWould you like me to connect you with our team for a quick call?";
+    return "Thank you for reaching out! We offer fully furnished rooms, 1GBPS Wi-Fi, 100% generator backup, and 3x daily Kerala meals across Pan-India (₹499/day Daily Stays & monthly plans).\n\nWould you like me to connect you with our team for a quick call?";
   };
 
   const handleSend = async (customQuery = null) => {

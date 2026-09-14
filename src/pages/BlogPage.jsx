@@ -7,11 +7,11 @@ export default function BlogPage() {
   const posts = [
     {
       id: 1,
-      title: 'Relocating to Jigani Tech Hub: Ultimate Guide for Software Engineers',
+      title: 'Relocating to Bengaluru Tech Corridors: Ultimate Guide for Software Engineers',
       category: 'Relocation Guide',
       date: 'Aug 14, 2026',
       author: 'Aafa Editorial Team',
-      snippet: 'Moving near HCL Gate in Jigani? Discover transport tips, local food hubs, internet readiness, and how to find zero-deposit PG accommodation.',
+      snippet: 'Moving near major tech corridors in Bengaluru? Discover transport tips, local food hubs, internet readiness, and how to find zero-deposit PG accommodation across Pan-India.',
       image: 'https://images.unsplash.com/photo-1522071820081-009f0129c71c?auto=format&fit=crop&w=800&q=80'
     },
     {
@@ -29,7 +29,7 @@ export default function BlogPage() {
       category: 'Co-Living Tips',
       date: 'Aug 05, 2026',
       author: 'Campus Desk',
-      snippet: 'Visiting Jigani for interview rounds or short projects? Compare our flexible ₹499/day daily stay (free breakfast included) vs monthly 1BHK/2BHK plans.',
+      snippet: 'Visiting for interview rounds or short client projects? Compare our flexible ₹499/day daily stay (free breakfast included) vs monthly 1BHK/2BHK plans across Pan-India.',
       image: 'https://images.unsplash.com/photo-1590490360182-c33d57733427?auto=format&fit=crop&w=800&q=80'
     },
   ];
@@ -42,13 +42,13 @@ export default function BlogPage() {
         <div className="text-center max-w-3xl mx-auto mb-16">
           <div className="inline-flex items-center gap-2 px-4 py-1.5 rounded-full glass-pill text-[#D4A64A] text-xs font-semibold uppercase tracking-wider mb-4">
             <BookOpen className="w-4 h-4 text-[#D4A64A]" />
-            <span>Life at Aafa & Jigani Guides</span>
+            <span>Life at Aafa & City Living Guides</span>
           </div>
           <h2 className="text-3xl sm:text-5xl font-extrabold text-[#FAF7F0] mb-6 font-sora tracking-tight">
             Community Stories & <span className="text-gradient-gold">Relocation Guides</span>
           </h2>
           <p className="text-[#FAF7F0]/80 text-base sm:text-lg">
-            Practical advice for tech professionals, engineers, and students moving to Jigani, Bengaluru.
+            Practical advice for tech professionals, engineers, and students moving to major IT hubs across Pan-India.
           </p>
         </div>
 
