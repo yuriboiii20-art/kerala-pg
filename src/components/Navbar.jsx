@@ -17,12 +17,22 @@ export default function Navbar({ onOpenBooking }) {
   useScrollLock(mobileMenuOpen);
 
   useEffect(() => {
+    let rafId = 0;
     const handleScroll = () => {
-      setScrolled(window.scrollY > 20);
+      if (!rafId) {
+        rafId = requestAnimationFrame(() => {
+          rafId = 0;
+          const isScrolled = window.scrollY > 20;
+          setScrolled((prev) => (prev !== isScrolled ? isScrolled : prev));
+        });
+      }
     };
     handleScroll();
     window.addEventListener('scroll', handleScroll, { passive: true });
-    return () => window.removeEventListener('scroll', handleScroll);
+    return () => {
+      cancelAnimationFrame(rafId);
+      window.removeEventListener('scroll', handleScroll);
+    };
   }, []);
 
   useEffect(() => {

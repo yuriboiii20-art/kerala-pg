@@ -578,14 +578,14 @@ export default function Home({ onOpenBooking }) {
               className="lg:w-7/12 flex flex-col items-start text-left"
             >
               {/* Top Pill Badge */}
-              <div className="inline-flex items-center gap-2 px-3 py-1 rounded-full glass-pill text-[#D4A64A] text-[11px] font-semibold uppercase tracking-wider mb-3">
-                <FindSpaceLogo className="w-3.5 h-3.5" />
+              <div className="inline-flex items-center gap-2.5 px-4 py-1.5 sm:px-4.5 sm:py-2 rounded-full glass-pill text-[#D4A64A] text-xs sm:text-[13px] font-semibold uppercase tracking-wider mb-3.5 shadow-sm">
+                <FindSpaceLogo className="w-4 h-4 sm:w-4.5 sm:h-4.5" />
                 <span>PAN-INDIA • 300m to HCL Gate</span>
               </div>
 
               {/* Main Description Paragraph */}
               <p className="text-[#FAF7F0]/90 text-sm sm:text-base lg:text-lg font-normal leading-relaxed mb-5 max-w-2xl font-sora">
-                Discover premium coliving sanctuaries thoughtfully designed for working professionals, software engineers, and students across Pan-India. Experience fully furnished private suites, 2BHK sharing, single rooms, and flexible ₹499/day daily stay options  complete with authentic 3x daily Kerala homestyle meals, ultra-fast 1Gbps dual fiber Wi-Fi, 24/7 commercial generator power backup, daily professional housekeeping, and biometric facial access. Enjoy a hassle-free, fully managed living ecosystem built for peak productivity, comfort, and a genuine sense of belonging.
+                Elevate your daily living in premium, fully serviced spaces built for work and tranquility. Enjoy authentic Kerala homestyle dining, high-speed fiber connectivity, and a peaceful community just moments from major tech hubs.
               </p>
 
               {/* Social Proof & Trust Badges */}

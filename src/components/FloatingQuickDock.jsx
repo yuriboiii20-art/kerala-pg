@@ -11,12 +11,21 @@ export default function FloatingQuickDock({
   const [visible, setVisible] = useState(false);
 
   useEffect(() => {
+    let rafId = 0;
     const handleScroll = () => {
-      // Show dock after scrolling 250px down
-      setVisible(window.scrollY > 250);
+      if (!rafId) {
+        rafId = requestAnimationFrame(() => {
+          rafId = 0;
+          const shouldBeVisible = window.scrollY > 250;
+          setVisible((prev) => (prev !== shouldBeVisible ? shouldBeVisible : prev));
+        });
+      }
     };
     window.addEventListener('scroll', handleScroll, { passive: true });
-    return () => window.removeEventListener('scroll', handleScroll);
+    return () => {
+      cancelAnimationFrame(rafId);
+      window.removeEventListener('scroll', handleScroll);
+    };
   }, []);
 
   const handleClickItem = (itemId) => {

@@ -1,9 +1,9 @@
-import React, { useEffect, useState } from 'react';
+import React, { useEffect, useRef, useState } from 'react';
 import { motion, useMotionValue, useSpring } from 'framer-motion';
 
 export default function CustomCursor() {
   const [isFinePointer, setIsFinePointer] = useState(false);
-  const [isHovered, setIsHovered] = useState(false);
+  const ringRef = useRef(null);
 
   const mouseX = useMotionValue(-100);
   const mouseY = useMotionValue(-100);
@@ -31,6 +31,7 @@ export default function CustomCursor() {
       });
     };
 
+    let isHovered = false;
     const handleMouseOver = (e) => {
       const target = e.target;
       if (!target || !(target instanceof Element)) return;
@@ -46,7 +47,17 @@ export default function CustomCursor() {
         target.closest('.glass-card-hover') ||
         target.closest('[data-cursor="expand"]');
 
-      setIsHovered(!!isInteractive);
+      const nextHovered = !!isInteractive;
+      if (nextHovered !== isHovered) {
+        isHovered = nextHovered;
+        if (ringRef.current) {
+          if (isHovered) {
+            ringRef.current.classList.add('cursor-expanded');
+          } else {
+            ringRef.current.classList.remove('cursor-expanded');
+          }
+        }
+      }
     };
 
     window.addEventListener('mousemove', handleMouseMove, { passive: true });
@@ -63,7 +74,7 @@ export default function CustomCursor() {
   if (!isFinePointer) return null;
 
   return (
-    <div className="pointer-events-none fixed inset-0 z-50 overflow-hidden hidden md:block">
+    <div className="pointer-events-none fixed inset-0 z-50 overflow-hidden hidden md:block select-none [contain:strict]">
       {/* Center Core Dot */}
       <motion.div
         style={{
@@ -77,19 +88,14 @@ export default function CustomCursor() {
 
       {/* Trailing Elastic Ring */}
       <motion.div
+        ref={ringRef}
         style={{
           x: ringX,
           y: ringY,
           translateX: '-50%',
           translateY: '-50%',
         }}
-        animate={{
-          scale: isHovered ? 1.8 : 1,
-          borderColor: isHovered ? '#FAF7F0' : '#D4A64A',
-          backgroundColor: isHovered ? 'rgba(212, 166, 74, 0.15)' : 'rgba(212, 166, 74, 0)',
-        }}
-        transition={{ duration: 0.18, ease: 'easeOut' }}
-        className="fixed top-0 left-0 w-8 h-8 rounded-full border border-[#D4A64A]/60 shadow-[0_0_12px_rgba(212,166,74,0.3)] will-change-transform"
+        className="fixed top-0 left-0 w-8 h-8 rounded-full border border-[#D4A64A]/60 shadow-[0_0_12px_rgba(212,166,74,0.3)] transition-all duration-200 will-change-transform [&.cursor-expanded]:scale-150 [&.cursor-expanded]:border-[#FAF7F0] [&.cursor-expanded]:bg-[#D4A64A]/15"
       />
     </div>
   );
