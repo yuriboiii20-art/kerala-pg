@@ -52,14 +52,14 @@ export default function Hero3DCanvas() {
       >
         
         {/* High-Resolution Room Interior Showcase Image */}
-        <div className="relative h-56 sm:h-64 rounded-2xl overflow-hidden border border-[#FAF7F0]/15">
+        <div className="relative h-64 sm:h-72 rounded-2xl overflow-hidden border border-[#FAF7F0]/15 bg-[#080d1a]">
           <img
-            src="https://images.unsplash.com/photo-1555854877-bab0e564b8d5?auto=format&fit=crop&w=1200&q=80"
+            src="/images/1pg.jpeg"
             alt="Aafa Coliving Luxury Room Interior"
             loading="eager"
-            className="w-full h-full object-cover group-hover:scale-105 transition-transform duration-500 filter brightness-105 contrast-105"
+            className="w-full h-full object-cover object-center transition-transform duration-500 filter brightness-105 contrast-105"
           />
-          <div className="absolute inset-0 bg-gradient-to-t from-[#0B1220] via-transparent to-transparent opacity-85" />     
+          <div className="absolute inset-0 bg-gradient-to-t from-[#0B1220] via-transparent to-transparent opacity-80" />     
 
           {/* Top Verified Location Badge */}
           <div className="absolute top-3 left-3 px-3 py-1 rounded-full bg-[#0B1220]/85 backdrop-blur-md border border-[#D4A64A]/40 text-[#D4A64A] text-[11px] font-bold flex items-center gap-1.5 shadow-lg">

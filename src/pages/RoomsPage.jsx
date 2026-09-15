@@ -11,54 +11,92 @@ export default function RoomsPage({ onOpenBooking }) {
 
   const plans = [
     {
+      id: '1bhk-fully-furnished',
+      title: '1 BHK FULLY FURNISHED',
+      category: 'monthly',
+      price: '₹18,000',
+      period: 'month',
+      badge: '18k Rent • 18k Deposit',
+      image: '/images/1r.jpeg',
+      images: [
+        "/images/1r.jpeg", "/images/2r.jpeg", "/images/3r.jpeg", "/images/4r.jpeg",
+        "/images/5r.jpeg", "/images/6r.jpeg", "/images/7r.jpeg", "/images/8r.jpeg",
+        "/images/9r.jpeg", "/images/10r.jpeg", "/images/11r.jpeg", "/images/12r.jpeg",
+        "/images/13r.jpeg", "/images/14r.jpeg", "/images/15r.jpeg"
+      ],
+      includes: [
+        '1 BHK Fully Furnished (Hall + Bedroom + Kitchenette)',
+        '18k Security Deposit (1 Month)',
+        'Aafa Suites Hotel Near By Infosys, Electronic City',
+        'Power Back Up & High-Speed Dual WiFi',
+        'Washing Machine & 24/7 Hot Water Geyser',
+        '3 Times Kerala Food Available'
+      ],
+      description: 'Aafa Suites Hotel Near By Infosys, 3rd Cross Rd, Krishna Reddy Layout, Electronic City, Konappana Agrahara, Karnataka 560100. Complete fully furnished independent suite for professionals.',
+      icon: HomeIcon,
+      highlight: true,
+    },
+    {
       id: 'daily-stay',
       title: 'Daily Stay Special ⭐',
       category: 'daily',
       price: '₹499',
       period: 'day',
       badge: 'Breakfast Free',
-      image: 'https://images.unsplash.com/photo-1590490360182-c33d57733427?auto=format&fit=crop&w=800&q=80',
-      includes: ['Hot Kerala Breakfast Included', 'Split AC / Fan Room', 'High-Speed 1Gbps Wi-Fi', 'Daily Clean Washroom', 'Zero Security Deposit', '300m Walk to HCL Gate'],
-      description: 'Ideal for short business trips, interviews, or trial stays across Pan-India with fresh Puttu/Dosa breakfast included every morning.',
+      image: '/images/1pg.jpeg',
+      includes: ['Hot Kerala Breakfast Included', 'High-Speed WiFi', '24/7 Hot Water Geyser', 'Power Back Up', 'Zero Security Deposit', 'Near HCL Gate no 2, Sannidhi layout'],
+      description: 'Ideal for short business trips, interviews, or trial stays near HCL Gate 2 with fresh Kerala breakfast included every morning.',
       icon: Clock,
       highlight: true,
     },
     {
-      id: '2bhk-sharing',
-      title: '2 BHK Sharing Deluxe',
-      category: 'monthly',
-      price: '₹7,499',
-      period: 'month',
-      badge: 'Most Popular',
-      image: 'https://images.unsplash.com/photo-1566665797739-1674de7a421a?auto=format&fit=crop&w=800&q=80',
-      includes: ['3x Daily Kerala Homestyle Meals', 'Personal Study Desk & Chair', 'Individual Locked Wardrobe', 'High-Speed Fiber Wi-Fi', '100% Commercial Generator', 'Daily Maid Housekeeping'],
-      description: 'Comfortable twin sharing room designed for tech professionals and students balancing community and privacy.',
-      icon: Bed,
-      highlight: true,
-    },
-    {
-      id: 'single-room',
-      title: 'Single Executive Suite',
+      id: '1-sharing',
+      title: '1 Sharing (Private Suite)',
       category: 'monthly',
       price: '₹11,499',
       period: 'month',
       badge: '100% Private',
-      image: 'https://images.unsplash.com/photo-1598928506311-c55ded91a20c?auto=format&fit=crop&w=800&q=80',
-      includes: ['Private Single Bedroom (No Roommates)', '3x Daily Kerala Meals Included', 'Ergonomic Workstation Desk', 'Pristine Attached Bathroom', 'Private Balcony Greenery View', 'High-Speed 1Gbps Fiber Wi-Fi'],
-      description: 'Dedicated private room with zero roommate interference. Move-in ready sanctuary for high-output IT professionals.',
+      image: '/images/1pg.jpeg',
+      includes: ['Private Single Bedroom (No Roommates)', '3 Times Kerala Homestyle Food', 'Lounge Area & Entertainment Zone', 'Attached Western Bathroom', 'Power Back Up & High-Speed WiFi', 'Washing Machine & Caretaker'],
+      description: 'Dedicated private room with zero roommate interference near HCL Gate 2, Sannidhi layout, Jigani.',
       icon: DoorClosed,
       highlight: true,
     },
     {
-      id: '1bhk',
-      title: '1 BHK Independent Suite',
+      id: '2-sharing',
+      title: '2 Sharing (Twin Room)',
       category: 'monthly',
-      price: 'Contact for Rate',
-      period: 'monthly rate',
-      badge: 'Full Suite & Kitchen',
-      image: 'https://images.unsplash.com/photo-1502672260266-1c1ef2d93688?auto=format&fit=crop&w=800&q=80',
-      includes: ['Private Living Room & Bedroom', 'Kitchen Space Access', 'High-Speed WiFi 6', 'Daily Maid Service', '100% Power Backup', 'Biometric 24/7 Security'],
-      description: 'Private 1BHK suite with your own spacious living hall and independent kitchen access in Sannidhi Layout.',
+      price: '₹7,499',
+      period: 'month',
+      badge: 'Most Popular',
+      image: '/images/1pg.jpeg',
+      includes: ['3 Times Daily Kerala Homestyle Meals', 'Personal Wardrobe & Study Space', 'Lounge Area & Entertainment Zone', 'High-Speed WiFi & Power Back Up', 'Washing Machine & 24/7 Hot Water', 'CCTV & Caretaker Security'],
+      description: 'Comfortable twin sharing room in Sannidhi Layout, Jigani designed for tech professionals and students.',
+      icon: Bed,
+      highlight: true,
+    },
+    {
+      id: '3-sharing',
+      title: '3 Sharing (Triple Room)',
+      category: 'monthly',
+      price: '₹5,999',
+      period: 'month',
+      badge: 'Value Saver',
+      image: '/images/1pg.jpeg',
+      includes: ['3 Times Daily Kerala Homestyle Meals', 'Spacious Room with Dedicated Storage', 'Lounge & Entertainment Zone', 'High-Speed WiFi & Power Back Up', 'Washing Machine & Self Cooking Area', '24/7 Hot Water & Caretaker'],
+      description: 'Spacious triple sharing room offering great value, peaceful living, and authentic homestyle food.',
+      icon: Bed,
+    },
+    {
+      id: '4-sharing',
+      title: '4 Sharing (Quad Room)',
+      category: 'monthly',
+      price: '₹4,999',
+      period: 'month',
+      badge: 'Budget Saver',
+      image: '/images/1pg.jpeg',
+      includes: ['3 Times Daily Kerala Homestyle Food', 'Power Back Up & WiFi', 'Washing Machine & Hot Water', 'Self Cooking Area Available', 'CCTV Security & Caretaker', 'Lounge Access'],
+      description: 'Ultra-affordable 4 sharing room with complete access to all facilities in Sannidhi Layout, Jigani.',
       icon: HomeIcon,
     },
   ];
@@ -68,8 +106,8 @@ export default function RoomsPage({ onOpenBooking }) {
     : plans.filter((p) => p.category === activeTab);
 
   const handleWhatsApp = (title) => {
-    const text = encodeURIComponent(`Hello Aafa Coliving Team! I am interested in checking availability for *${title}* across Pan-India. Could you share current move-in dates?`);
-    window.open(`https://wa.me/918747049377?text=${text}`, '_blank', 'noopener,noreferrer');
+    const text = encodeURIComponent(`Hello Aafa Coliving Team! I am interested in checking availability for *${title}* at Aafa Coliving (Near HCL Gate no 2, Sannidhi layout, Jigani). Could you share current move-in details?`);
+    window.open(`https://wa.me/919900082615?text=${text}`, '_blank', 'noopener,noreferrer');
   };
 
   return (
@@ -165,7 +203,7 @@ export default function RoomsPage({ onOpenBooking }) {
                     >
                       <div>
                         {/* Image Preview */}
-                        <div className="relative h-56 sm:h-64 rounded-2xl overflow-hidden mb-6 border border-white/10">
+                        <div className="relative h-56 sm:h-64 rounded-2xl overflow-hidden mb-6 border border-white/10 bg-[#080d1a]">
                           <img
                             src={plan.image || 'https://images.unsplash.com/photo-1590490360182-c33d57733427?auto=format&fit=crop&w=800&q=80'}
                             alt={plan.title}
@@ -173,7 +211,7 @@ export default function RoomsPage({ onOpenBooking }) {
                               e.currentTarget.onerror = null;
                               e.currentTarget.src = 'https://images.unsplash.com/photo-1522771739844-6a9f6d5f14af?auto=format&fit=crop&w=800&q=80';
                             }}
-                            className="w-full h-full object-cover group-hover:scale-105 transition-transform duration-700"
+                            className="w-full h-full object-cover object-center transition-transform duration-500"
                             loading="lazy"
                           />
                           <div className="absolute top-3 left-3 px-3 py-1 rounded-full bg-[#0B1220]/85 backdrop-blur-md text-[#D4A64A] border border-[#D4A64A]/30 text-xs font-bold font-mono">

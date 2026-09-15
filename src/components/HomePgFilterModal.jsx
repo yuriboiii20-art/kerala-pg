@@ -241,7 +241,7 @@ export default function HomePgFilterModal({ isOpen, onClose, onOpenBooking }) {
                               e.currentTarget.onerror = null;
                               e.currentTarget.src = 'https://images.unsplash.com/photo-1522771739844-6a9f6d5f14af?auto=format&fit=crop&w=600&q=80';
                             }}
-                            className="w-full h-full object-cover group-hover:scale-105 transition-transform duration-300"
+                            className="w-full h-full object-cover object-center transition-transform duration-300"
                             loading="lazy"
                           />
                           <div className="absolute top-2 left-2 flex items-center gap-1">

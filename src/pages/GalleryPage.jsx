@@ -12,88 +12,60 @@ export default function GalleryPage() {
   const galleryItems = [
     {
       id: 1,
-      title: 'Single Executive Bedroom',
+      title: 'Aafa Coliving - Private & Executive Rooms',
       category: 'rooms',
-      image: 'https://images.unsplash.com/photo-1598928506311-c55ded91a20c?auto=format&fit=crop&w=1200&q=80',
-      caption: 'Fully furnished single executive bedroom with private balcony & study table.'
+      image: '/images/1pg.jpeg',
+      caption: 'Furnished bedroom space with beds, wardrobes, and high-speed WiFi.'
     },
     {
       id: 2,
-      title: 'Aafa Dining Hall & Mess',
-      category: 'dining',
-      image: 'https://images.unsplash.com/photo-1555396273-367ea4eb4db5?auto=format&fit=crop&w=1200&q=80',
-      caption: 'Hygienic communal dining zone serving 3x daily hot Kerala meals.'
+      title: 'Aafa Coliving - Twin & Sharing Bedrooms',
+      category: 'rooms',
+      image: '/images/2pg.jpeg',
+      caption: 'Spacious sharing room layout with power backup and natural ventilation.'
     },
     {
       id: 3,
-      title: 'Twin Sharing Deluxe Bedroom',
+      title: 'Aafa Coliving - Triple & Sharing Setup',
       category: 'rooms',
-      image: 'https://images.unsplash.com/photo-1566665797739-1674de7a421a?auto=format&fit=crop&w=1200&q=80',
-      caption: 'Spacious twin bedroom with dual study workstations and attached bathroom.'
+      image: '/images/3pg.jpeg',
+      caption: 'Comfortable sharing arrangement with individual storage and charging points.'
     },
     {
       id: 4,
-      title: 'Gaming & Chill Lounge',
-      category: 'lounge',
-      image: 'https://images.unsplash.com/photo-1511512578047-dfb367046420?auto=format&fit=crop&w=1200&q=80',
-      caption: 'Cozy social lounge with PS5, 4K Smart TV, and acoustic bean bags.'
+      title: 'Aafa Coliving - Quad Room & Wardrobes',
+      category: 'rooms',
+      image: '/images/4pg.jpeg',
+      caption: 'Clean, well-maintained budget-friendly 4 sharing room setup.'
     },
     {
       id: 5,
-      title: 'Modern Kitchen Prep Zone',
-      category: 'kitchen',
-      image: 'https://images.unsplash.com/photo-1556911220-e15b29be8c8f?auto=format&fit=crop&w=1200&q=80',
-      caption: 'Segregated hygienic cooking counters equipped with mineral RO water filters.'
+      title: 'Aafa Coliving - Common Lounge & Living Zone',
+      category: 'lounge',
+      image: '/images/5pg.jpeg',
+      caption: 'Relaxing lounge area and entertainment zone for residents.'
     },
     {
       id: 6,
-      title: 'Luxury Studio Penthouse',
-      category: 'rooms',
-      image: 'https://images.unsplash.com/photo-1502672260266-1c1ef2d93688?auto=format&fit=crop&w=1200&q=80',
-      caption: 'Private studio penthouse with dedicated kitchenette and terrace garden views.'
+      title: 'Aafa Coliving - Dining Hall & Kerala Mess',
+      category: 'dining',
+      image: '/images/6pg.jpeg',
+      caption: 'Communal dining space serving 3 times fresh homestyle Kerala meals.'
     },
     {
       id: 7,
-      title: 'Attached Western Washroom',
-      category: 'rooms',
-      image: 'https://images.unsplash.com/photo-1584622650111-993a426fbf0a?auto=format&fit=crop&w=1200&q=80',
-      caption: 'Pristine attached western bathroom with 24/7 hot water geyser.'
+      title: 'Aafa Coliving - Washing & Utility Area',
+      category: 'lounge',
+      image: '/images/7pg.jpeg',
+      caption: 'Washing machine and utility facilities with 24/7 hot water supply.'
     },
     {
       id: 8,
-      title: 'Kerala Mess Special Sadhya',
-      category: 'dining',
-      image: 'https://assets.vogue.in/photos/5f4cddb9e07cbbc0d15b6866/2:3/w_1920,c_limit/Onam-2020.jpg',
-      caption: 'Homestyle Kerala Sadhya red rice feast served to residents.'
-    },
-    {
-      id: 9,
-      title: 'Ergonomic Workstation Nook',
-      category: 'rooms',
-      image: 'https://images.unsplash.com/photo-1527192491265-7e15c55b1ed2?auto=format&fit=crop&w=1200&q=80',
-      caption: 'Surge-protected study desk setup for zero-downtime remote work.'
-    },
-    {
-      id: 10,
-      title: 'Rooftop Chill & Drying Terrace',
-      category: 'lounge',
-      image: 'https://images.unsplash.com/photo-1512917774080-9991f1c4c750?auto=format&fit=crop&w=1200&q=80',
-      caption: 'Spacious rooftop terrace with clothes drying racks and evening breeze views.'
-    },
-    {
-      id: 11,
-      title: 'Biometric Security Access Gate',
-      category: 'lounge',
-      image: 'https://images.unsplash.com/photo-1558036117-15d82a90b9b1?auto=format&fit=crop&w=1200&q=80',
-      caption: '24/7 biometric facial recognition entry gate with CCTV monitoring.'
-    },
-    {
-      id: 12,
-      title: 'Fresh Filter Coffee & Snacks Counter',
-      category: 'dining',
-      image: 'https://images.unsplash.com/photo-1514432324607-a09d9b4aefdd?auto=format&fit=crop&w=1200&q=80',
-      caption: 'Hot brewed filter coffee & banana fritters served every evening at 4:30 PM.'
-    },
+      title: 'Aafa Coliving - Self Cooking & Kitchen Space',
+      category: 'kitchen',
+      image: '/images/8pg.jpeg',
+      caption: 'Self cooking kitchen area equipped with essential amenities for residents.'
+    }
   ];
 
   const filteredItems = activeFilter === 'all'
@@ -208,11 +180,17 @@ export default function GalleryPage() {
                   <X className="w-6 h-6" />
                 </button>
 
-                <div className="h-[450px] sm:h-[550px] rounded-2xl overflow-hidden mb-4">
+                <div className="relative h-[450px] sm:h-[550px] rounded-2xl overflow-hidden mb-4 bg-[#080d1a] flex items-center justify-center border border-white/10">
+                  <img
+                    src={activeImage.image}
+                    alt=""
+                    aria-hidden="true"
+                    className="absolute inset-0 w-full h-full object-cover blur-2xl opacity-20 scale-105 pointer-events-none"
+                  />
                   <img
                     src={activeImage.image}
                     alt={activeImage.title}
-                    className="w-full h-full object-cover"
+                    className="relative z-1 max-w-full max-h-full object-contain p-2 sm:p-4 drop-shadow-2xl"
                   />
                 </div>
 

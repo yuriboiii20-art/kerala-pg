@@ -33,12 +33,12 @@ export default function Home({ onOpenBooking }) {
   // Dynamic Booking Flow State
   const [bookingFilters, setBookingFilters] = useState({
     location: 'all',
-    stayType: 'day',
+    stayType: 'month',
     roomType: 'all',
-    sharing: '2',
+    sharing: 'all',
     gender: 'all',
     checkInDate: new Date().toISOString().split('T')[0],
-    duration: '1 Day',
+    duration: '1 Month',
     durationValue: 1,
   });
 
@@ -113,53 +113,77 @@ export default function Home({ onOpenBooking }) {
   // Curated room plans preview
   const featuredRooms = [
     {
+      id: '1bhk-fully-furnished',
+      title: '1 BHK FULLY FURNISHED',
+      type: '1bhk',
+      price: '₹18,000',
+      period: 'month',
+      image: '/images/1r.jpeg',
+      badge: '18k Rent • 18k Deposit',
+      desc: 'Aafa Suites Hotel Near By Infosys, 3rd Cross Rd, Krishna Reddy Layout, Electronic City. Fully furnished 1 BHK with hall, bed & kitchenette.',
+      highlights: ['18k Rent • 18k Deposit', 'Near By Infosys, Electronic City', '1 BHK Fully Furnished', 'Power Back Up & WiFi']
+    },
+    {
       id: 'daily-special',
       title: 'Daily Stay Special',
       type: 'daily',
       price: '₹499',
       period: 'day',
-      image: 'https://images.unsplash.com/photo-1590490360182-c33d57733427?auto=format&fit=crop&w=800&q=80',
+      image: '/images/1pg.jpeg',
       badge: 'Breakfast Free',
-      desc: 'Clean furnished room + free hot Kerala breakfast (Puttu/Dosa/Idli) every morning.',
-      highlights: ['Hot Kerala Breakfast', 'High-Speed Wi-Fi', '2-Min to HCL Gate', 'Zero Security Deposit']
+      desc: 'Clean furnished room + free hot Kerala breakfast (Puttu/Dosa/Idli) every morning near HCL Gate 2.',
+      highlights: ['Hot Kerala Breakfast', 'High-Speed WiFi', 'Near HCL Gate 2', 'Zero Security Deposit']
     },
     {
-      id: 'double-deluxe',
-      title: '2 BHK Sharing Deluxe',
-      type: 'sharing',
-      price: '₹7,499',
-      period: 'month',
-      image: 'https://images.unsplash.com/photo-1566665797739-1674de7a421a?auto=format&fit=crop&w=800&q=80',
-      badge: 'Most Popular',
-      desc: 'Spacious twin sharing room with personal study desk, wardrobe locker & attached bath.',
-      highlights: ['3x Daily Kerala Food', '100% Gen Power', 'Daily Housekeeping', '1-Month Deposit Only']
-    },
-    {
-      id: 'single-executive',
-      title: 'Single Executive Suite',
+      id: '1-sharing',
+      title: '1 Sharing (Private Suite)',
       type: 'private',
       price: '₹11,499',
       period: 'month',
-      image: 'https://images.unsplash.com/photo-1598928506311-c55ded91a20c?auto=format&fit=crop&w=800&q=80',
-      badge: '100% Privacy',
-      desc: 'Independent private single room for IT professionals seeking uninterrupted focus.',
-      highlights: ['3x Homestyle Meals', 'Private Study Nook', 'Balcony Greenery View', 'High-Speed Wi-Fi']
+      image: '/images/1pg.jpeg',
+      badge: '100% Private',
+      desc: 'Dedicated private single room with attached bath, study desk, power backup, and 3 times Kerala food.',
+      highlights: ['3x Daily Kerala Meals', 'Attached Western Bath', 'Power Back Up', 'High-Speed WiFi']
     },
     {
-      id: '1bhk-suite',
-      title: '1 BHK Independent Suite',
-      type: 'private',
-      price: 'Contact for Rate',
+      id: '2-sharing',
+      title: '2 Sharing (Twin Room)',
+      type: 'sharing',
+      price: '₹7,499',
       period: 'month',
-      image: 'https://images.unsplash.com/photo-1502672260266-1c1ef2d93688?auto=format&fit=crop&w=800&q=80',
-      badge: 'Kitchen Access',
-      desc: 'Full private 1BHK suite with living hall and independent kitchen space.',
-      highlights: ['Full Privacy', 'Kitchen Space', 'Attached Bath', 'Power Backup 24/7']
+      image: '/images/1pg.jpeg',
+      badge: 'Most Popular',
+      desc: 'Spacious twin sharing room with wardrobe storage, lounge access, washing machine, and 3 times meals.',
+      highlights: ['3x Daily Kerala Food', 'Lounge & Entertainment', 'Washing Machine', '24/7 Hot Water']
+    },
+    {
+      id: '3-sharing',
+      title: '3 Sharing (Triple Room)',
+      type: 'sharing',
+      price: '₹5,999',
+      period: 'month',
+      image: '/images/1pg.jpeg',
+      badge: 'Value Saver',
+      desc: 'Comfortable 3 sharing room setup in Sannidhi layout, Jigani with full facilities and caretaker support.',
+      highlights: ['3x Daily Kerala Food', 'Power Back Up', 'Self Cooking Area', 'High-Speed WiFi']
+    },
+    {
+      id: '4-sharing',
+      title: '4 Sharing (Quad Room)',
+      type: 'sharing',
+      price: '₹4,999',
+      period: 'month',
+      image: '/images/1pg.jpeg',
+      badge: 'Budget Saver',
+      desc: 'Affordable 4 sharing room with individual charging points, power backup, and 3 times fresh meals.',
+      highlights: ['3x Daily Kerala Meals', 'CCTV & Caretaker', 'Washing Machine', 'WiFi & Power Backup']
     }
   ];
 
   const filteredFeaturedRooms = roomCategoryTab === 'all'
     ? featuredRooms
+    : roomCategoryTab === 'sharing'
+    ? featuredRooms.filter((r) => r.type === 'sharing')
     : featuredRooms.filter((r) => r.type === roomCategoryTab);
 
   // FAQ Accordion Data
@@ -294,7 +318,7 @@ export default function Home({ onOpenBooking }) {
               className="glass-card glass-card-hover rounded-3xl p-5 border border-white/10 flex flex-col justify-between group overflow-hidden"
             >
               <div>
-                <div className="relative h-44 rounded-2xl overflow-hidden mb-4 border border-white/10">
+                <div className="relative h-48 sm:h-52 rounded-2xl overflow-hidden mb-4 border border-white/10 bg-[#080d1a]">
                   <img
                     src={room.image || 'https://images.unsplash.com/photo-1590490360182-c33d57733427?auto=format&fit=crop&w=800&q=80'}
                     alt={room.title}
@@ -302,7 +326,7 @@ export default function Home({ onOpenBooking }) {
                       e.currentTarget.onerror = null;
                       e.currentTarget.src = 'https://images.unsplash.com/photo-1522771739844-6a9f6d5f14af?auto=format&fit=crop&w=800&q=80';
                     }}
-                    className="w-full h-full object-cover group-hover:scale-105 transition-transform duration-700"
+                    className="w-full h-full object-cover object-center transition-transform duration-500"
                     loading="lazy"
                   />
                   <div className="absolute top-3 left-3 px-3 py-1 rounded-full bg-[#0B1220]/80 backdrop-blur-md text-[#D4A64A] border border-[#D4A64A]/30 text-[10px] font-bold font-mono">
