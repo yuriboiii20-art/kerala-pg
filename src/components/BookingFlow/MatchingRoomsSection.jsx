@@ -195,7 +195,7 @@ export default function MatchingRoomsSection({
                 >
                   <div>
                     {/* Room Image Container */}
-                    <div className="relative h-48 rounded-2xl overflow-hidden mb-4 border border-white/10 bg-[#0B1220]">
+                    <div className="relative h-52 rounded-2xl overflow-hidden mb-4 border border-white/10 bg-[#080d1a]">
                       <img
                         src={room.image}
                         alt={room.name}
@@ -204,7 +204,7 @@ export default function MatchingRoomsSection({
                           e.currentTarget.src =
                             'https://images.unsplash.com/photo-1522771739844-6a9f6d5f14af?auto=format&fit=crop&w=600&q=80';
                         }}
-                        className="w-full h-full object-cover group-hover:scale-105 transition-transform duration-500"
+                        className="w-full h-full object-cover object-center transition-transform duration-500"
                         loading="lazy"
                       />
 
