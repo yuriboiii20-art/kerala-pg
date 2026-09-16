@@ -204,9 +204,9 @@ Please confirm my room check-in availability across Pan-India campuses. Thank yo
           className="relative w-full max-w-2xl rounded-3xl bg-[#0B1220] border-2 border-[#D4A64A]/50 text-[#FAF7F0] shadow-[0_25px_80px_rgba(0,0,0,0.98)] z-10 overflow-hidden flex flex-col max-h-[calc(100vh-5rem)] sm:max-h-[88vh] my-auto pointer-events-auto"
         >
           {/* Top Sticky Header with Prominent Back and High-Contrast Close X */}
-          <div className="sticky top-0 z-30 p-3 sm:p-4 border-b border-white/10 bg-[#0E172A] shrink-0 space-y-3 shadow-md">
-            <div className="flex items-center justify-between gap-3">
-              {/* Back to Rooms button */}
+          <div className="sticky top-0 z-30 p-2.5 sm:p-4 border-b border-white/10 bg-[#0E172A] shrink-0 space-y-2.5 sm:space-y-3 shadow-md">
+            <div className="flex items-center justify-between gap-2 sm:gap-3">
+              {/* Back button */}
               <button
                 type="button"
                 onClick={() => {
@@ -216,27 +216,30 @@ Please confirm my room check-in availability across Pan-India campuses. Thank yo
                     onClose();
                   }
                 }}
-                className="px-3.5 py-1.5 rounded-xl bg-white/10 hover:bg-white/20 active:scale-95 text-[#FAF7F0] text-xs font-bold flex items-center gap-1.5 border border-white/20 transition-all cursor-pointer shadow-sm hover:border-[#D4A64A]/50 group"
+                className="px-2.5 sm:px-3.5 py-1.5 rounded-xl bg-white/10 hover:bg-white/20 active:scale-95 text-[#FAF7F0] text-xs font-bold flex items-center gap-1.5 border border-white/15 transition-all cursor-pointer shadow-sm hover:border-[#D4A64A]/50 group shrink-0"
               >
                 <ArrowLeft className="w-4 h-4 text-[#D4A64A] group-hover:-translate-x-0.5 transition-transform" />
-                <span>{step === 4 && !isConfirmed ? '← Back to Stay Plans' : '← Back to Rooms'}</span>
+                <span className="hidden sm:inline">
+                  {step === 4 && !isConfirmed ? 'Back to Stay Plans' : 'Back to Rooms'}
+                </span>
+                <span className="sm:hidden">Back</span>
               </button>
 
-              <div className="hidden sm:flex items-center gap-2 text-xs text-[#FAF7F0]/70 font-mono">
-                <span className="px-2 py-0.5 rounded-md bg-[#D4A64A]/15 text-[#D4A64A] font-bold border border-[#D4A64A]/30">
+              <div className="flex items-center gap-2 text-xs text-[#FAF7F0]/70 font-mono">
+                <span className="px-2 py-0.5 rounded-md bg-[#D4A64A]/15 text-[#D4A64A] text-[11px] sm:text-xs font-bold border border-[#D4A64A]/30">
                   Step {step === 4 ? '4' : '3'} of 4
                 </span>
               </div>
 
-              {/* In-Card Close X button */}
+              {/* Close button */}
               <button
                 type="button"
                 onClick={onClose}
                 aria-label="Close modal"
-                className="px-3 py-1.5 rounded-xl bg-red-500/20 hover:bg-red-500 text-red-200 hover:text-white text-xs font-bold flex items-center gap-1.5 border border-red-500/40 transition-all cursor-pointer shadow-sm active:scale-95"
+                className="p-1.5 sm:px-3 sm:py-1.5 rounded-xl bg-red-500/15 hover:bg-red-500 text-red-200 hover:text-white text-xs font-bold flex items-center justify-center gap-1.5 border border-red-500/30 transition-all cursor-pointer shadow-sm active:scale-95 shrink-0"
               >
                 <X className="w-4 h-4 stroke-[2.5]" />
-                <span>Close</span>
+                <span className="hidden sm:inline">Close</span>
               </button>
             </div>
 
@@ -597,6 +600,10 @@ Please confirm my room check-in availability across Pan-India campuses. Thank yo
 
                 {/* Guest Form Fields */}
                 <div className="space-y-4">
+                  <h4 className="text-sm font-bold font-sora text-[#FAF7F0] mb-3 flex items-center gap-2">
+                    <User className="w-4 h-4 text-[#D4A64A]" />
+                    <span>Primary Guest Information</span>
+                  </h4>
                   <div className="grid grid-cols-1 sm:grid-cols-2 gap-3">
                     <div className="space-y-1">
                       <label className="text-[11px] font-mono text-[#D4A64A] flex items-center gap-1">
@@ -629,11 +636,11 @@ Please confirm my room check-in availability across Pan-India campuses. Thank yo
                     </div>
                   </div>
 
-                  {/* Food Preference */}
+                  {/* Dietary Preferences */}
                   <div className="space-y-1">
                     <label className="text-[11px] font-mono text-[#D4A64A] flex items-center gap-1">
                       <Utensils className="w-3 h-3" />
-                      <span>Diet Preference</span>
+                      <span>Kerala Food Meal Preference</span>
                     </label>
                     <div className="grid grid-cols-3 gap-2">
                       {[
@@ -657,7 +664,7 @@ Please confirm my room check-in availability across Pan-India campuses. Thank yo
                     </div>
                   </div>
 
-                  {/* Optional Note */}
+                  {/* Special Requests / Shift Timings */}
                   <div className="space-y-1">
                     <label className="text-[11px] font-mono text-[#D4A64A]">
                       Special Requests / Office Shift Timings (Optional)
@@ -673,27 +680,28 @@ Please confirm my room check-in availability across Pan-India campuses. Thank yo
                 </div>
 
                 {/* Action Buttons */}
-                <div className="flex items-center gap-3 pt-2">
+                <div className="flex items-center gap-2 sm:gap-3 pt-2">
                   <button
                     type="button"
                     onClick={() => setStep(3)}
-                    className="py-3 px-4 rounded-xl bg-white/10 hover:bg-white/20 active:scale-95 border border-white/20 text-xs text-white/90 font-bold transition-all flex items-center gap-1.5 cursor-pointer hover:border-[#D4A64A]/40"
+                    className="py-3 px-3 sm:px-4 rounded-xl bg-white/10 hover:bg-white/20 active:scale-95 border border-white/20 text-xs text-white/90 font-bold transition-all flex items-center gap-1.5 cursor-pointer hover:border-[#D4A64A]/40 shrink-0"
                   >
                     <ArrowLeft className="w-3.5 h-3.5 text-[#D4A64A]" />
-                    <span>Back to Stay Plans</span>
+                    <span className="hidden sm:inline">Back to Stay Plans</span>
+                    <span className="sm:hidden">Back</span>
                   </button>
 
                   <button
                     type="button"
                     onClick={onClose}
-                    className="py-3 px-3 rounded-xl bg-white/5 hover:bg-red-500/20 active:scale-95 border border-white/10 hover:border-red-500/30 text-xs text-white/60 hover:text-red-200 transition-all cursor-pointer"
+                    className="py-3 px-2.5 sm:px-3 rounded-xl bg-white/5 hover:bg-red-500/20 active:scale-95 border border-white/10 hover:border-red-500/30 text-xs text-white/60 hover:text-red-200 transition-all cursor-pointer shrink-0"
                   >
                     Cancel
                   </button>
 
                   <button
                     type="submit"
-                    className="flex-1 py-3.5 sm:py-4 px-6 rounded-2xl bg-gradient-to-r from-[#D4A64A] via-amber-500 to-yellow-600 text-[#0B1220] font-extrabold text-sm sm:text-base flex items-center justify-center gap-2 shadow-xl shadow-[#D4A64A]/30 hover:scale-[1.02] active:scale-[0.98] transition-all cursor-pointer btn-shimmer"
+                    className="flex-1 py-3.5 sm:py-4 px-4 sm:px-6 rounded-2xl bg-gradient-to-r from-[#D4A64A] via-amber-500 to-yellow-600 text-[#0B1220] font-extrabold text-xs sm:text-base flex items-center justify-center gap-2 shadow-xl shadow-[#D4A64A]/30 hover:scale-[1.02] active:scale-[0.98] transition-all cursor-pointer btn-shimmer"
                   >
                     <span>Confirm Booking</span>
                     <ArrowRight className="w-4 h-4" />

@@ -88,7 +88,7 @@ export default function RoomModal({ room, onClose, onBookNow }) {
             
             {/* Left: High-Clarity Keyboard & Arrow Slider */}
             <div className="lg:col-span-7 flex flex-col gap-2">
-              <div className="relative h-72 sm:h-80 md:h-[400px] rounded-2xl overflow-hidden border border-white/15 shadow-2xl bg-[#080d1a] flex items-center justify-center select-none group">
+              <div className="relative h-64 xs:h-72 sm:h-80 md:h-[400px] max-h-[50vh] rounded-2xl overflow-hidden border border-white/15 shadow-2xl bg-[#080d1a] flex items-center justify-center select-none group">
                 {/* Soft ambient background fill */}
                 <img
                   src={imagesList[activeImageIndex]}
@@ -106,9 +106,9 @@ export default function RoomModal({ room, onClose, onBookNow }) {
                 />
 
                 {/* Photo Counter Pill */}
-                <div className="absolute top-3 left-3 px-3 py-1 rounded-full bg-[#0B1220]/90 backdrop-blur-md text-[#FAF7F0] text-xs font-mono font-bold border border-white/15 shadow-lg pointer-events-none flex items-center gap-1.5">
-                  <span className="w-2 h-2 rounded-full bg-[#D4A64A]" />
-                  <span>Photo {activeImageIndex + 1} of {imagesList.length}</span>
+                <div className="absolute top-2.5 sm:top-3 left-2.5 sm:left-3 px-2.5 sm:px-3 py-1 rounded-full bg-[#0B1220]/90 backdrop-blur-md text-[#FAF7F0] text-[10px] sm:text-xs font-mono font-bold border border-white/15 shadow-lg pointer-events-none flex items-center gap-1.5 z-10">
+                  <span className="w-1.5 h-1.5 sm:w-2 sm:h-2 rounded-full bg-[#D4A64A]" />
+                  <span>Photo {activeImageIndex + 1}/{imagesList.length}</span>
                 </div>
 
                 {/* Previous Arrow Button */}
@@ -116,9 +116,9 @@ export default function RoomModal({ room, onClose, onBookNow }) {
                   type="button"
                   onClick={handlePrev}
                   aria-label="Previous photo (Left Arrow)"
-                  className="absolute left-3 top-1/2 -translate-y-1/2 w-10 h-10 rounded-full bg-[#0B1220]/80 hover:bg-[#0B1220] text-white flex items-center justify-center transition-all border border-white/20 hover:border-[#D4A64A] shadow-xl hover:scale-105 z-10 cursor-pointer"
+                  className="absolute left-2 sm:left-3 top-1/2 -translate-y-1/2 w-8 h-8 sm:w-10 sm:h-10 rounded-full bg-[#0B1220]/80 hover:bg-[#0B1220] active:scale-95 text-white flex items-center justify-center transition-all border border-white/20 hover:border-[#D4A64A] shadow-xl hover:scale-105 z-10 cursor-pointer backdrop-blur-md"
                 >
-                  <ChevronLeft className="w-5 h-5 stroke-[2.5]" />
+                  <ChevronLeft className="w-4 h-4 sm:w-5 sm:h-5 stroke-[2.5]" />
                 </button>
 
                 {/* Next Arrow Button */}
@@ -126,31 +126,39 @@ export default function RoomModal({ room, onClose, onBookNow }) {
                   type="button"
                   onClick={handleNext}
                   aria-label="Next photo (Right Arrow)"
-                  className="absolute right-3 top-1/2 -translate-y-1/2 w-10 h-10 rounded-full bg-[#0B1220]/80 hover:bg-[#0B1220] text-white flex items-center justify-center transition-all border border-white/20 hover:border-[#D4A64A] shadow-xl hover:scale-105 z-10 cursor-pointer"
+                  className="absolute right-2 sm:right-3 top-1/2 -translate-y-1/2 w-8 h-8 sm:w-10 sm:h-10 rounded-full bg-[#0B1220]/80 hover:bg-[#0B1220] active:scale-95 text-white flex items-center justify-center transition-all border border-white/20 hover:border-[#D4A64A] shadow-xl hover:scale-105 z-10 cursor-pointer backdrop-blur-md"
                 >
-                  <ChevronRight className="w-5 h-5 stroke-[2.5]" />
+                  <ChevronRight className="w-4 h-4 sm:w-5 sm:h-5 stroke-[2.5]" />
                 </button>
 
                 {/* Bottom Center Dots Indicator */}
-                <div className="absolute bottom-3 left-1/2 -translate-x-1/2 flex items-center gap-1.5 px-3 py-1 rounded-full bg-[#0B1220]/85 backdrop-blur-md border border-white/15 z-10">
-                  {imagesList.map((_, idx) => (
-                    <button
-                      key={idx}
-                      type="button"
-                      onClick={() => setActiveImageIndex(idx)}
-                      aria-label={`Go to photo ${idx + 1}`}
-                      className={`transition-all rounded-full cursor-pointer ${
-                        activeImageIndex === idx
-                          ? 'w-6 h-2 bg-[#D4A64A]'
-                          : 'w-2 h-2 bg-white/40 hover:bg-white/70'
-                      }`}
-                    />
-                  ))}
+                <div className="absolute bottom-2.5 sm:bottom-3 left-1/2 -translate-x-1/2 max-w-[85%] flex items-center gap-1 sm:gap-1.5 px-2.5 sm:px-3 py-1 rounded-full bg-[#0B1220]/85 backdrop-blur-md border border-white/15 z-10 overflow-x-auto no-scrollbar">
+                  {imagesList.map((_, idx) => {
+                    const isVisibleOnMobile = Math.abs(idx - activeImageIndex) <= 3 || idx === 0 || idx === imagesList.length - 1;
+                    return (
+                      <button
+                        key={idx}
+                        type="button"
+                        onClick={() => setActiveImageIndex(idx)}
+                        aria-label={`Go to photo ${idx + 1}`}
+                        className={`transition-all rounded-full cursor-pointer shrink-0 ${
+                          activeImageIndex === idx
+                            ? 'w-4 sm:w-6 h-1.5 sm:h-2 bg-[#D4A64A]'
+                            : isVisibleOnMobile
+                            ? 'w-1.5 sm:w-2 h-1.5 sm:h-2 bg-white/40 hover:bg-white/70'
+                            : 'hidden sm:block w-1.5 sm:w-2 h-1.5 sm:h-2 bg-white/20'
+                        }`}
+                      />
+                    );
+                  })}
                 </div>
               </div>
 
               <div className="flex items-center justify-between text-[10px] font-mono text-[#FAF7F0]/60 px-1">
-                <span>⌨️ Press <kbd className="px-1 rounded bg-white/10 text-[#D4A64A]">←</kbd> <kbd className="px-1 rounded bg-white/10 text-[#D4A64A]">→</kbd> to browse</span>
+                <span>
+                  <span className="sm:hidden">👆 Swipe or tap arrows</span>
+                  <span className="hidden sm:inline">⌨️ Press <kbd className="px-1 rounded bg-white/10 text-[#D4A64A]">←</kbd> <kbd className="px-1 rounded bg-white/10 text-[#D4A64A]">→</kbd> to browse</span>
+                </span>
                 <span>{imagesList.length} Photos</span>
               </div>
             </div>

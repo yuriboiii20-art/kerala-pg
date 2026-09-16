@@ -142,34 +142,37 @@ export default function RoomDetailsModal({
           className="relative w-full max-w-4xl rounded-3xl bg-[#0B1220] border-2 border-[#D4A64A]/50 text-[#FAF7F0] shadow-[0_25px_80px_rgba(0,0,0,0.98)] z-10 overflow-hidden flex flex-col max-h-[calc(100vh-5rem)] sm:max-h-[92vh] my-auto pointer-events-auto"
         >
           {/* Header */}
-          <div className="sticky top-0 z-30 p-3 sm:p-4 border-b border-white/10 flex items-center justify-between bg-[#0E172A] shadow-md">
+          <div className="sticky top-0 z-30 p-2.5 sm:p-4 border-b border-white/10 flex items-center justify-between gap-2 bg-[#0E172A] shadow-md">
             {/* Back Button */}
             <button
               type="button"
               onClick={onClose}
-              className="px-3.5 py-1.5 rounded-xl bg-white/10 hover:bg-white/20 active:scale-95 text-[#FAF7F0] text-xs font-bold flex items-center gap-1.5 border border-white/20 transition-all cursor-pointer shadow-sm hover:border-[#D4A64A]/50 group"
+              className="px-2.5 sm:px-3.5 py-1.5 rounded-xl bg-white/10 hover:bg-white/20 active:scale-95 text-[#FAF7F0] text-xs font-bold flex items-center gap-1.5 border border-white/15 transition-all cursor-pointer shadow-sm hover:border-[#D4A64A]/50 group shrink-0"
             >
               <ArrowLeft className="w-4 h-4 text-[#D4A64A] group-hover:-translate-x-0.5 transition-transform" />
-              <span>← Back to Rooms</span>
+              <span className="hidden sm:inline">Back to Rooms</span>
+              <span className="sm:hidden">Back</span>
             </button>
 
-            <div className="flex items-center gap-2">
-              <span className="px-2.5 py-1 rounded-lg bg-[#D4A64A]/15 text-[#D4A64A] text-xs font-mono font-bold border border-[#D4A64A]/30">
+            {/* Middle Badges */}
+            <div className="flex items-center gap-1.5 sm:gap-2 min-w-0 shrink">
+              <span className="px-2 sm:px-2.5 py-0.5 sm:py-1 rounded-lg bg-[#D4A64A]/15 text-[#D4A64A] text-[10px] sm:text-xs font-mono font-bold border border-[#D4A64A]/30 shrink-0">
                 Coliving
               </span>
-              <span className="px-2.5 py-1 rounded-lg bg-emerald-500/15 text-emerald-400 text-xs font-mono font-bold border border-emerald-500/30">
+              <span className="px-2 sm:px-2.5 py-0.5 sm:py-1 rounded-lg bg-emerald-500/15 text-emerald-400 text-[10px] sm:text-xs font-mono font-bold border border-emerald-500/30 truncate text-center">
                 {room.sharingLabel || '1, 2, 3 & 4 Sharing'}
               </span>
             </div>
 
+            {/* Close Button */}
             <button
               type="button"
               onClick={onClose}
               aria-label="Close modal"
-              className="px-3 py-1.5 rounded-xl bg-red-500/20 hover:bg-red-500 text-red-200 hover:text-white text-xs font-bold flex items-center gap-1.5 border border-red-500/40 transition-all cursor-pointer shadow-sm active:scale-95"
+              className="p-1.5 sm:px-3 sm:py-1.5 rounded-xl bg-red-500/15 hover:bg-red-500 text-red-200 hover:text-white text-xs font-bold flex items-center justify-center gap-1.5 border border-red-500/30 transition-all cursor-pointer shadow-sm active:scale-95 shrink-0"
             >
               <X className="w-4 h-4 stroke-[2.5]" />
-              <span>Close</span>
+              <span className="hidden sm:inline">Close</span>
             </button>
           </div>
 
@@ -182,7 +185,7 @@ export default function RoomDetailsModal({
                 onTouchStart={handleTouchStart}
                 onTouchMove={handleTouchMove}
                 onTouchEnd={handleTouchEnd}
-                className="relative h-72 sm:h-96 md:h-[440px] rounded-2xl overflow-hidden border border-white/15 shadow-2xl bg-[#080d1a] flex items-center justify-center select-none group"
+                className="relative h-64 xs:h-72 sm:h-88 md:h-[420px] max-h-[55vh] rounded-2xl overflow-hidden border border-white/15 shadow-2xl bg-[#080d1a] flex items-center justify-center select-none group"
               >
                 {/* Soft ambient background fill */}
                 <img
@@ -200,16 +203,19 @@ export default function RoomDetailsModal({
                   className="relative z-1 max-w-full max-h-full object-contain p-2 sm:p-4 transition-opacity duration-300 drop-shadow-2xl"
                 />
 
-                {/* Top Right Rating Badge */}
-                <div className="absolute top-3 right-3 px-3 py-1 rounded-full bg-[#0B1220]/90 backdrop-blur-md text-[#FAF7F0] text-xs font-bold flex items-center gap-1.5 border border-white/15 shadow-lg pointer-events-none">
-                  <Star className="w-3.5 h-3.5 text-[#D4A64A] fill-[#D4A64A]" />
-                  <span>4.9 Rating (140+ Reviews)</span>
-                </div>
+                {/* Top Badges Bar - flex container to prevent overlap on all devices */}
+                <div className="absolute top-2.5 sm:top-3.5 left-2.5 sm:left-3.5 right-2.5 sm:right-3.5 flex items-center justify-between gap-2 pointer-events-none z-10">
+                  {/* Photo Counter Pill */}
+                  <div className="px-2.5 sm:px-3 py-1 rounded-full bg-[#0B1220]/90 backdrop-blur-md text-[#FAF7F0] text-[10px] sm:text-xs font-mono font-bold border border-white/15 shadow-lg flex items-center gap-1.5 shrink-0">
+                    <span className="w-1.5 h-1.5 sm:w-2 sm:h-2 rounded-full bg-[#D4A64A]" />
+                    <span>Photo {currentImageIndex + 1}/{imagesList.length}</span>
+                  </div>
 
-                {/* Top Left Photo Counter Pill */}
-                <div className="absolute top-3 left-3 px-3 py-1 rounded-full bg-[#0B1220]/90 backdrop-blur-md text-[#FAF7F0] text-xs font-mono font-bold border border-white/15 shadow-lg pointer-events-none flex items-center gap-1.5">
-                  <span className="w-2 h-2 rounded-full bg-[#D4A64A]" />
-                  <span>Photo {currentImageIndex + 1} of {imagesList.length}</span>
+                  {/* Rating Badge */}
+                  <div className="px-2.5 sm:px-3 py-1 rounded-full bg-[#0B1220]/90 backdrop-blur-md text-[#FAF7F0] text-[10px] sm:text-xs font-bold flex items-center gap-1 sm:gap-1.5 border border-white/15 shadow-lg shrink-0">
+                    <Star className="w-3 h-3 sm:w-3.5 sm:h-3.5 text-[#D4A64A] fill-[#D4A64A]" />
+                    <span>4.9 <span className="hidden xs:inline font-normal text-[#FAF7F0]/80">(140+)</span></span>
+                  </div>
                 </div>
 
                 {/* Left Navigation Arrow */}
@@ -218,9 +224,9 @@ export default function RoomDetailsModal({
                   onClick={handlePrevImage}
                   aria-label="Previous photo (Left Arrow)"
                   title="Previous Photo (Left Arrow Key)"
-                  className="absolute left-3 sm:left-4 top-1/2 -translate-y-1/2 w-11 h-11 sm:w-12 sm:h-12 rounded-full bg-[#0B1220]/80 hover:bg-[#0B1220] active:scale-95 text-white flex items-center justify-center transition-all border border-white/25 hover:border-[#D4A64A] shadow-2xl hover:scale-105 z-10 cursor-pointer backdrop-blur-md"
+                  className="absolute left-2 sm:left-4 top-1/2 -translate-y-1/2 w-9 h-9 sm:w-11 sm:h-11 rounded-full bg-[#0B1220]/80 hover:bg-[#0B1220] active:scale-95 text-white flex items-center justify-center transition-all border border-white/25 hover:border-[#D4A64A] shadow-2xl hover:scale-105 z-10 cursor-pointer backdrop-blur-md"
                 >
-                  <ChevronLeft className="w-6 h-6 stroke-[2.5]" />
+                  <ChevronLeft className="w-5 h-5 sm:w-6 sm:h-6 stroke-[2.5]" />
                 </button>
 
                 {/* Right Navigation Arrow */}
@@ -229,33 +235,41 @@ export default function RoomDetailsModal({
                   onClick={handleNextImage}
                   aria-label="Next photo (Right Arrow)"
                   title="Next Photo (Right Arrow Key)"
-                  className="absolute right-3 sm:right-4 top-1/2 -translate-y-1/2 w-11 h-11 sm:w-12 sm:h-12 rounded-full bg-[#0B1220]/80 hover:bg-[#0B1220] active:scale-95 text-white flex items-center justify-center transition-all border border-white/25 hover:border-[#D4A64A] shadow-2xl hover:scale-105 z-10 cursor-pointer backdrop-blur-md"
+                  className="absolute right-2 sm:right-4 top-1/2 -translate-y-1/2 w-9 h-9 sm:w-11 sm:h-11 rounded-full bg-[#0B1220]/80 hover:bg-[#0B1220] active:scale-95 text-white flex items-center justify-center transition-all border border-white/25 hover:border-[#D4A64A] shadow-2xl hover:scale-105 z-10 cursor-pointer backdrop-blur-md"
                 >
-                  <ChevronRight className="w-6 h-6 stroke-[2.5]" />
+                  <ChevronRight className="w-5 h-5 sm:w-6 sm:h-6 stroke-[2.5]" />
                 </button>
 
-                {/* Bottom Center Dots Indicator */}
-                <div className="absolute bottom-3 left-1/2 -translate-x-1/2 flex items-center gap-1.5 px-3 py-1 rounded-full bg-[#0B1220]/85 backdrop-blur-md border border-white/15 z-10">
-                  {imagesList.map((_, idx) => (
-                    <button
-                      key={idx}
-                      type="button"
-                      onClick={() => setCurrentImageIndex(idx)}
-                      aria-label={`Go to photo ${idx + 1}`}
-                      className={`transition-all rounded-full cursor-pointer ${
-                        currentImageIndex === idx
-                          ? 'w-6 h-2 bg-[#D4A64A]'
-                          : 'w-2 h-2 bg-white/40 hover:bg-white/70'
-                      }`}
-                    />
-                  ))}
+                {/* Bottom Center Smart Dots Indicator */}
+                <div className="absolute bottom-2.5 sm:bottom-3 left-1/2 -translate-x-1/2 max-w-[85%] flex items-center gap-1 sm:gap-1.5 px-2.5 sm:px-3 py-1 rounded-full bg-[#0B1220]/85 backdrop-blur-md border border-white/15 z-10 overflow-x-auto no-scrollbar">
+                  {imagesList.map((_, idx) => {
+                    const isVisibleOnMobile = Math.abs(idx - currentImageIndex) <= 3 || idx === 0 || idx === imagesList.length - 1;
+                    return (
+                      <button
+                        key={idx}
+                        type="button"
+                        onClick={() => setCurrentImageIndex(idx)}
+                        aria-label={`Go to photo ${idx + 1}`}
+                        className={`transition-all rounded-full cursor-pointer shrink-0 ${
+                          currentImageIndex === idx
+                            ? 'w-4 sm:w-6 h-1.5 sm:h-2 bg-[#D4A64A]'
+                            : isVisibleOnMobile
+                            ? 'w-1.5 sm:w-2 h-1.5 sm:h-2 bg-white/40 hover:bg-white/70'
+                            : 'hidden sm:block w-1.5 sm:w-2 h-1.5 sm:h-2 bg-white/20'
+                        }`}
+                      />
+                    );
+                  })}
                 </div>
               </div>
 
               {/* Keyboard & Swipe Hint Bar */}
-              <div className="flex items-center justify-between text-[11px] font-mono text-[#FAF7F0]/60 px-1">
-                <span>⌨️ Press <kbd className="px-1.5 py-0.5 rounded bg-white/10 text-[#D4A64A] font-bold">←</kbd> <kbd className="px-1.5 py-0.5 rounded bg-white/10 text-[#D4A64A] font-bold">→</kbd> arrows or click sides to navigate</span>
-                <span className="hidden sm:inline">All {imagesList.length} Photos Available</span>
+              <div className="flex items-center justify-between text-[10px] sm:text-[11px] font-mono text-[#FAF7F0]/60 px-1">
+                <span>
+                  <span className="sm:hidden">👆 Swipe or tap arrows to browse</span>
+                  <span className="hidden sm:inline">⌨️ Press <kbd className="px-1.5 py-0.5 rounded bg-white/10 text-[#D4A64A] font-bold">←</kbd> <kbd className="px-1.5 py-0.5 rounded bg-white/10 text-[#D4A64A] font-bold">→</kbd> arrows or click sides to navigate</span>
+                </span>
+                <span>{imagesList.length} Photos</span>
               </div>
             </div>
 
@@ -356,37 +370,37 @@ export default function RoomDetailsModal({
           </div>
 
           {/* Footer Action Bar */}
-          <div className="p-4 sm:p-5 border-t border-white/10 bg-[#0E172A] flex flex-wrap items-center justify-between gap-3">
-            <button
-              type="button"
-              onClick={onClose}
-              className="px-4 py-2.5 rounded-xl bg-white/10 hover:bg-white/20 active:scale-95 text-xs font-bold text-white/90 transition-all cursor-pointer flex items-center gap-1.5 border border-white/15 hover:border-[#D4A64A]/40"
-            >
-              <ArrowLeft className="w-3.5 h-3.5 text-[#D4A64A]" />
-              <span>Back to Rooms</span>
-            </button>
-
-            <div className="flex items-center gap-2">
-              <a
-                href={`tel:${phones[0]}`}
-                className="px-4 py-2.5 rounded-xl bg-emerald-600 hover:bg-emerald-500 text-white text-xs font-bold transition-all flex items-center gap-1.5 shadow-sm"
-              >
-                <Phone className="w-3.5 h-3.5" />
-                <span>Call Desk</span>
-              </a>
-
+          <div className="p-3 sm:p-5 border-t border-white/10 bg-[#0E172A] flex flex-col sm:flex-row sm:items-center justify-between gap-2.5 sm:gap-3">
+            <div className="flex items-center gap-2 w-full sm:w-auto">
               <button
                 type="button"
-                onClick={() => {
-                  onClose();
-                  if (onProceedToBooking) onProceedToBooking(room);
-                }}
-                className="px-6 py-2.5 rounded-xl bg-gradient-to-r from-[#D4A64A] via-amber-500 to-yellow-600 text-[#0B1220] text-xs sm:text-sm font-extrabold shadow-lg shadow-[#D4A64A]/25 hover:scale-105 active:scale-95 transition-all flex items-center gap-2 cursor-pointer btn-shimmer"
+                onClick={onClose}
+                className="flex-1 sm:flex-initial px-3.5 py-2.5 rounded-xl bg-white/10 hover:bg-white/20 active:scale-95 text-xs font-bold text-white/90 transition-all cursor-pointer flex items-center justify-center gap-1.5 border border-white/15 hover:border-[#D4A64A]/40"
               >
-                <span>Choose Stay Plan & Book</span>
-                <ArrowRight className="w-4 h-4" />
+                <ArrowLeft className="w-3.5 h-3.5 text-[#D4A64A]" />
+                <span>Back</span>
               </button>
+
+              <a
+                href={`tel:${phones[0]}`}
+                className="px-3.5 py-2.5 rounded-xl bg-emerald-600/20 hover:bg-emerald-600 text-emerald-300 hover:text-white border border-emerald-500/40 text-xs font-bold transition-all flex items-center justify-center gap-1.5 shadow-sm"
+              >
+                <Phone className="w-3.5 h-3.5 text-emerald-400" />
+                <span>Call Desk</span>
+              </a>
             </div>
+
+            <button
+              type="button"
+              onClick={() => {
+                onClose();
+                if (onProceedToBooking) onProceedToBooking(room);
+              }}
+              className="w-full sm:w-auto px-5 py-2.5 rounded-xl bg-gradient-to-r from-[#D4A64A] via-amber-500 to-yellow-600 text-[#0B1220] text-xs sm:text-sm font-extrabold shadow-lg shadow-[#D4A64A]/25 hover:scale-[1.02] active:scale-95 transition-all flex items-center justify-center gap-2 cursor-pointer btn-shimmer"
+            >
+              <span>Choose Stay Plan & Book</span>
+              <ArrowRight className="w-4 h-4" />
+            </button>
           </div>
         </motion.div>
       </div>
