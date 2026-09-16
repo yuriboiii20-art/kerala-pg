@@ -12,8 +12,6 @@ import {
   ChevronLeft,
   ChevronRight,
   Sparkles,
-  Maximize2,
-  ZoomIn,
 } from 'lucide-react';
 import useScrollLock from '../../hooks/useScrollLock';
 
@@ -40,6 +38,8 @@ export default function RoomDetailsModal({
   const [isFullScreen, setIsFullScreen] = useState(false);
   const touchStartX = useRef(0);
   const touchEndX = useRef(0);
+  const touchStartY = useRef(0);
+  const touchEndY = useRef(0);
 
   const imagesList = room?.images && room.images.length > 0 ? room.images : (room?.image ? [room.image] : all8Images);
 
@@ -87,23 +87,36 @@ export default function RoomDetailsModal({
   // Touch Swipe Handlers for Mobile
   const handleTouchStart = (e) => {
     touchStartX.current = e.targetTouches[0].clientX;
+    touchEndX.current = e.targetTouches[0].clientX;
+    touchStartY.current = e.targetTouches[0].clientY;
+    touchEndY.current = e.targetTouches[0].clientY;
   };
 
   const handleTouchMove = (e) => {
     touchEndX.current = e.targetTouches[0].clientX;
+    touchEndY.current = e.targetTouches[0].clientY;
   };
 
   const handleTouchEnd = () => {
     if (!touchStartX.current || !touchEndX.current) return;
-    const distance = touchStartX.current - touchEndX.current;
+    const distanceX = touchStartX.current - touchEndX.current;
+    const distanceY = touchStartY.current - touchEndY.current;
     const minSwipeDistance = 45;
-    if (distance > minSwipeDistance) {
-      handleNextImage(); // Swiped Left -> Next
-    } else if (distance < -minSwipeDistance) {
-      handlePrevImage(); // Swiped Right -> Prev
+
+    // In Fullscreen Mode: Swiping vertically exits fullscreen mode back to modal
+    if (isFullScreen && Math.abs(distanceY) > 50 && Math.abs(distanceY) > Math.abs(distanceX)) {
+      setIsFullScreen(false);
+    } else if (Math.abs(distanceX) > minSwipeDistance) {
+      if (distanceX > 0) {
+        handleNextImage(); // Swiped Left -> Next
+      } else {
+        handlePrevImage(); // Swiped Right -> Prev
+      }
     }
     touchStartX.current = 0;
     touchEndX.current = 0;
+    touchStartY.current = 0;
+    touchEndY.current = 0;
   };
 
   if (!isOpen || !room) return null;
@@ -221,27 +234,10 @@ export default function RoomDetailsModal({
                     <span>Photo {currentImageIndex + 1}/{imagesList.length}</span>
                   </div>
 
-                  <div className="flex items-center gap-1.5">
-                    {/* Fullscreen Expand Button */}
-                    <button
-                      type="button"
-                      onClick={(e) => {
-                        e.stopPropagation();
-                        setIsFullScreen(true);
-                      }}
-                      aria-label="Open fullscreen photo viewer"
-                      title="Double click photo or click to view Fullscreen"
-                      className="px-2.5 sm:px-3 py-1 rounded-full bg-[#0B1220]/90 hover:bg-[#D4A64A] text-[#FAF7F0] hover:text-[#0B1220] text-[10px] sm:text-xs font-bold flex items-center gap-1.5 border border-white/20 hover:border-[#D4A64A] transition-all cursor-pointer shadow-lg active:scale-95 pointer-events-auto"
-                    >
-                      <Maximize2 className="w-3 h-3 sm:w-3.5 sm:h-3.5 stroke-[2.5]" />
-                      <span className="hidden xs:inline">Fullscreen</span>
-                    </button>
-
-                    {/* Rating Badge */}
-                    <div className="px-2.5 sm:px-3 py-1 rounded-full bg-[#0B1220]/90 backdrop-blur-md text-[#FAF7F0] text-[10px] sm:text-xs font-bold flex items-center gap-1 sm:gap-1.5 border border-white/15 shadow-lg shrink-0">
-                      <Star className="w-3 h-3 sm:w-3.5 sm:h-3.5 text-[#D4A64A] fill-[#D4A64A]" />
-                      <span>4.9 <span className="hidden xs:inline font-normal text-[#FAF7F0]/80">(140+)</span></span>
-                    </div>
+                  {/* Rating Badge */}
+                  <div className="px-2.5 sm:px-3 py-1 rounded-full bg-[#0B1220]/90 backdrop-blur-md text-[#FAF7F0] text-[10px] sm:text-xs font-bold flex items-center gap-1 sm:gap-1.5 border border-white/15 shadow-lg shrink-0">
+                    <Star className="w-3 h-3 sm:w-3.5 sm:h-3.5 text-[#D4A64A] fill-[#D4A64A]" />
+                    <span>4.9 <span className="hidden xs:inline font-normal text-[#FAF7F0]/80">(140+)</span></span>
                   </div>
                 </div>
 
