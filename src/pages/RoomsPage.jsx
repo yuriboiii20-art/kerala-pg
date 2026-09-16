@@ -43,7 +43,11 @@ export default function RoomsPage({ onOpenBooking }) {
       price: '₹499',
       period: 'day',
       badge: 'Breakfast Free',
-      image: '/images/1pg.jpeg',
+      image: '/images/7pg.jpeg',
+      images: [
+        "/images/7pg.jpeg",
+        "/images/8pg.jpeg"
+      ],
       includes: ['Hot Kerala Breakfast Included', 'High-Speed WiFi', '24/7 Hot Water Geyser', 'Power Back Up', 'Zero Security Deposit', 'Near HCL Gate no 2, Sannidhi layout'],
       description: 'Ideal for short business trips, interviews, or trial stays near HCL Gate 2 with fresh Kerala breakfast included every morning.',
       icon: Clock,
@@ -57,6 +61,10 @@ export default function RoomsPage({ onOpenBooking }) {
       period: 'month',
       badge: '100% Private',
       image: '/images/1pg.jpeg',
+      images: [
+        "/images/1pg.jpeg",
+        "/images/8pg.jpeg"
+      ],
       includes: ['Private Single Bedroom (No Roommates)', '3 Times Kerala Homestyle Food', 'Lounge Area & Entertainment Zone', 'Attached Western Bathroom', 'Power Back Up & High-Speed WiFi', 'Washing Machine & Caretaker'],
       description: 'Dedicated private room with zero roommate interference near HCL Gate 2, Sannidhi layout, Jigani.',
       icon: DoorClosed,
@@ -69,7 +77,11 @@ export default function RoomsPage({ onOpenBooking }) {
       price: '₹7,499',
       period: 'month',
       badge: 'Most Popular',
-      image: '/images/1pg.jpeg',
+      image: '/images/7pg.jpeg',
+      images: [
+        "/images/7pg.jpeg",
+        "/images/8pg.jpeg"
+      ],
       includes: ['3 Times Daily Kerala Homestyle Meals', 'Personal Wardrobe & Study Space', 'Lounge Area & Entertainment Zone', 'High-Speed WiFi & Power Back Up', 'Washing Machine & 24/7 Hot Water', 'CCTV & Caretaker Security'],
       description: 'Comfortable twin sharing room in Sannidhi Layout, Jigani designed for tech professionals and students.',
       icon: Bed,
@@ -82,7 +94,11 @@ export default function RoomsPage({ onOpenBooking }) {
       price: '₹5,999',
       period: 'month',
       badge: 'Value Saver',
-      image: '/images/1pg.jpeg',
+      image: '/images/3sharing.png',
+      images: [
+        "/images/3sharing.png",
+        "/images/8pg.jpeg"
+      ],
       includes: ['3 Times Daily Kerala Homestyle Meals', 'Spacious Room with Dedicated Storage', 'Lounge & Entertainment Zone', 'High-Speed WiFi & Power Back Up', 'Washing Machine & Self Cooking Area', '24/7 Hot Water & Caretaker'],
       description: 'Spacious triple sharing room offering great value, peaceful living, and authentic homestyle food.',
       icon: Bed,
@@ -94,7 +110,11 @@ export default function RoomsPage({ onOpenBooking }) {
       price: '₹4,999',
       period: 'month',
       badge: 'Budget Saver',
-      image: '/images/1pg.jpeg',
+      image: '/images/4share.png',
+      images: [
+        "/images/4share.png",
+        "/images/8pg.jpeg"
+      ],
       includes: ['3 Times Daily Kerala Homestyle Food', 'Power Back Up & WiFi', 'Washing Machine & Hot Water', 'Self Cooking Area Available', 'CCTV Security & Caretaker', 'Lounge Access'],
       description: 'Ultra-affordable 4 sharing room with complete access to all facilities in Sannidhi Layout, Jigani.',
       icon: HomeIcon,
