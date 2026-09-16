@@ -102,7 +102,10 @@ export const pgListings = [
     isPremium: true,
     badge: "100% Private • Executive",
     image: "/images/1pg.jpeg",
-    images: aafaImages,
+    images: [
+      "/images/1pg.jpeg",
+      "/images/8pg.jpeg"
+    ],
     desc: "Premium private coliving sanctuary near HCL Gate 2 with attached western washroom, workstation desk, and full access to community amenities.",
     facilities: [
       "Lounge area",
@@ -147,8 +150,11 @@ export const pgListings = [
     reviewsCount: 162,
     isPremium: false,
     badge: "Most Popular",
-    image: "/images/1pg.jpeg",
-    images: aafaImages,
+    image: "/images/7pg.jpeg",
+    images: [
+      "/images/7pg.jpeg",
+      "/images/8pg.jpeg"
+    ],
     desc: "Spacious 2 sharing room with personal wardrobes, study spaces, attached bath, and 3x daily Kerala homestyle meals in Sannidhi Layout, Jigani.",
     facilities: [
       "Lounge area",
@@ -193,8 +199,11 @@ export const pgListings = [
     reviewsCount: 94,
     isPremium: false,
     badge: "Value Saver",
-    image: "/images/1pg.jpeg",
-    images: aafaImages,
+    image: "/images/3sharing.png",
+    images: [
+      "/images/3sharing.png",
+      "/images/8pg.jpeg"
+    ],
     desc: "Comfortable 3 sharing room setup for professionals and students seeking high comfort, peaceful atmosphere, and authentic homestyle meals.",
     facilities: [
       "Lounge area",
@@ -239,8 +248,11 @@ export const pgListings = [
     reviewsCount: 78,
     isPremium: false,
     badge: "Budget Saver",
-    image: "/images/1pg.jpeg",
-    images: aafaImages,
+    image: "/images/4share.png",
+    images: [
+      "/images/4share.png",
+      "/images/8pg.jpeg"
+    ],
     desc: "Ultra-affordable 4 sharing room with individual study and charging points, power backup, CCTV, and 3 times fresh Kerala meals.",
     facilities: [
       "Lounge area",
