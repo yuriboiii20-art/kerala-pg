@@ -1,7 +1,7 @@
 import useScrollLock from '../hooks/useScrollLock';
-import React, { useState } from 'react';
+import React, { useState, useEffect } from 'react';
 import { motion, AnimatePresence } from 'framer-motion';
-import { Image, X, ZoomIn, Sparkles } from 'lucide-react';
+import { Image, X, ZoomIn, ChevronLeft, ChevronRight } from 'lucide-react';
 import PageTransition from '../components/PageTransition';
 
 export default function GalleryPage() {
@@ -71,6 +71,40 @@ export default function GalleryPage() {
   const filteredItems = activeFilter === 'all'
     ? galleryItems
     : galleryItems.filter(item => item.category === activeFilter);
+
+  const activeIndex = activeImage ? filteredItems.findIndex(item => item.id === activeImage.id) : -1;
+
+  const handlePrev = () => {
+    if (activeIndex === -1) return;
+    const prevIndex = activeIndex === 0 ? filteredItems.length - 1 : activeIndex - 1;
+    setActiveImage(filteredItems[prevIndex]);
+  };
+
+  const handleNext = () => {
+    if (activeIndex === -1) return;
+    const nextIndex = activeIndex === filteredItems.length - 1 ? 0 : activeIndex + 1;
+    setActiveImage(filteredItems[nextIndex]);
+  };
+
+  useEffect(() => {
+    const handleKeyDown = (e) => {
+      if (!activeImage) return;
+      if (e.key === 'Escape') {
+        setActiveImage(null);
+      } else if (e.key === 'ArrowRight') {
+        e.preventDefault();
+        handleNext();
+      } else if (e.key === 'ArrowLeft') {
+        e.preventDefault();
+        handlePrev();
+      }
+    };
+
+    if (activeImage) {
+      window.addEventListener('keydown', handleKeyDown);
+    }
+    return () => window.removeEventListener('keydown', handleKeyDown);
+  }, [activeImage, activeIndex, filteredItems]);
 
   return (
     <PageTransition>
@@ -158,51 +192,86 @@ export default function GalleryPage() {
         {/* Lightbox Modal */}
         <AnimatePresence>
           {activeImage && (
-            <div className="fixed inset-0 z-50 flex items-center justify-center p-4 sm:p-6">
+            <div className="fixed inset-0 z-50 flex items-center justify-center p-3 sm:p-6">
               <motion.div
                 initial={{ opacity: 0 }}
                 animate={{ opacity: 1 }}
                 exit={{ opacity: 0 }}
                 onClick={() => setActiveImage(null)}
-                className="fixed inset-0 bg-[#0B1220]/90 backdrop-blur-2xl"
+                className="fixed inset-0 bg-[#0B1220]/95 backdrop-blur-2xl"
               />
 
               <motion.div
-                initial={{ opacity: 0, scale: 0.85 }}
+                initial={{ opacity: 0, scale: 0.9 }}
                 animate={{ opacity: 1, scale: 1 }}
-                exit={{ opacity: 0, scale: 0.85 }}
-                className="relative max-w-4xl w-full rounded-3xl overflow-hidden glass-card border border-[#D4A64A]/40 p-4 shadow-2xl z-10"
+                exit={{ opacity: 0, scale: 0.9 }}
+                className="relative max-w-5xl w-full rounded-3xl overflow-hidden glass-card border border-[#D4A64A]/40 p-3 sm:p-5 shadow-2xl z-10"
               >
-                <button
-                  onClick={() => setActiveImage(null)}
-                  className="absolute top-6 right-6 p-2.5 rounded-full bg-[#0B1220]/80 text-white hover:bg-[#0B1220] transition-all z-20"
-                >
-                  <X className="w-6 h-6" />
-                </button>
+                <div className="flex items-center justify-between pb-3 mb-3 border-b border-white/10">
+                  <span className="px-3 py-1 rounded-full bg-[#D4A64A]/20 text-[#D4A64A] text-xs font-mono font-bold border border-[#D4A64A]/40">
+                    Photo {activeIndex + 1} of {filteredItems.length}
+                  </span>
+                  <button
+                    onClick={() => setActiveImage(null)}
+                    className="p-2 rounded-full bg-white/10 hover:bg-white/20 text-white transition-all cursor-pointer"
+                  >
+                    <X className="w-5 h-5" />
+                  </button>
+                </div>
 
-                <div className="relative h-[450px] sm:h-[550px] rounded-2xl overflow-hidden mb-4 bg-[#080d1a] flex items-center justify-center border border-white/10">
+                <div className="relative h-[50vh] sm:h-[65vh] rounded-2xl overflow-hidden bg-[#080d1a] flex items-center justify-center border border-white/10 group">
                   <img
                     src={activeImage.image}
                     alt=""
                     aria-hidden="true"
-                    className="absolute inset-0 w-full h-full object-cover blur-2xl opacity-20 scale-105 pointer-events-none"
+                    className="absolute inset-0 w-full h-full object-cover blur-2xl opacity-25 scale-105 pointer-events-none"
                   />
                   <img
+                    key={activeImage.id}
                     src={activeImage.image}
                     alt={activeImage.title}
-                    className="relative z-1 max-w-full max-h-full object-contain p-2 sm:p-4 drop-shadow-2xl"
+                    onDoubleClick={() => setActiveImage(null)}
+                    title="Double click to close"
+                    className="relative z-1 max-w-full max-h-full object-contain p-2 sm:p-4 drop-shadow-2xl cursor-zoom-out"
                   />
+
+                  {/* Previous Arrow */}
+                  <button
+                    type="button"
+                    onClick={(e) => {
+                      e.stopPropagation();
+                      handlePrev();
+                    }}
+                    className="absolute left-3 top-1/2 -translate-y-1/2 w-10 h-10 sm:w-12 sm:h-12 rounded-full bg-[#0B1220]/80 hover:bg-[#D4A64A] text-white hover:text-[#0B1220] flex items-center justify-center transition-all border border-white/20 shadow-xl z-20 cursor-pointer backdrop-blur-md"
+                  >
+                    <ChevronLeft className="w-6 h-6 stroke-[2.5]" />
+                  </button>
+
+                  {/* Next Arrow */}
+                  <button
+                    type="button"
+                    onClick={(e) => {
+                      e.stopPropagation();
+                      handleNext();
+                    }}
+                    className="absolute right-3 top-1/2 -translate-y-1/2 w-10 h-10 sm:w-12 sm:h-12 rounded-full bg-[#0B1220]/80 hover:bg-[#D4A64A] text-white hover:text-[#0B1220] flex items-center justify-center transition-all border border-white/20 shadow-xl z-20 cursor-pointer backdrop-blur-md"
+                  >
+                    <ChevronRight className="w-6 h-6 stroke-[2.5]" />
+                  </button>
                 </div>
 
-                <div className="px-4 py-2 flex items-center justify-between">
+                <div className="px-2 pt-3 flex flex-col sm:flex-row sm:items-center justify-between gap-2">
                   <div>
-                    <h3 className="text-xl font-bold font-sora">
+                    <h3 className="text-base sm:text-lg font-bold font-sora text-[#FAF7F0]">
                       {activeImage.title}
                     </h3>
-                    <p className="text-xs opacity-80 mt-1">
+                    <p className="text-xs text-[#FAF7F0]/70 mt-0.5">
                       {activeImage.caption}
                     </p>
                   </div>
+                  <span className="text-[11px] font-mono text-[#FAF7F0]/50 shrink-0">
+                    Use <kbd className="px-1 rounded bg-white/10 text-[#D4A64A]">←</kbd> <kbd className="px-1 rounded bg-white/10 text-[#D4A64A]">→</kbd> to browse
+                  </span>
                 </div>
               </motion.div>
             </div>
@@ -213,3 +282,4 @@ export default function GalleryPage() {
     </PageTransition>
   );
 }
+
