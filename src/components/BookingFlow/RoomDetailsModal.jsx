@@ -12,6 +12,8 @@ import {
   ChevronLeft,
   ChevronRight,
   Sparkles,
+  Maximize2,
+  ZoomIn,
 } from 'lucide-react';
 import useScrollLock from '../../hooks/useScrollLock';
 
@@ -35,6 +37,7 @@ export default function RoomDetailsModal({
 }) {
   useScrollLock(isOpen);
   const [currentImageIndex, setCurrentImageIndex] = useState(0);
+  const [isFullScreen, setIsFullScreen] = useState(false);
   const touchStartX = useRef(0);
   const touchEndX = useRef(0);
 
@@ -44,6 +47,7 @@ export default function RoomDetailsModal({
   useEffect(() => {
     if (isOpen) {
       setCurrentImageIndex(0);
+      setIsFullScreen(false);
     }
   }, [isOpen, room]);
 
@@ -60,7 +64,11 @@ export default function RoomDetailsModal({
     const handleKeyDown = (e) => {
       if (!isOpen) return;
       if (e.key === 'Escape') {
-        onClose();
+        if (isFullScreen) {
+          setIsFullScreen(false);
+        } else {
+          onClose();
+        }
       } else if (e.key === 'ArrowRight') {
         e.preventDefault();
         setCurrentImageIndex((prev) => (prev === imagesList.length - 1 ? 0 : prev + 1));
@@ -74,7 +82,7 @@ export default function RoomDetailsModal({
       window.addEventListener('keydown', handleKeyDown);
     }
     return () => window.removeEventListener('keydown', handleKeyDown);
-  }, [isOpen, onClose, imagesList.length]);
+  }, [isOpen, isFullScreen, onClose, imagesList.length]);
 
   // Touch Swipe Handlers for Mobile
   const handleTouchStart = (e) => {
@@ -185,7 +193,9 @@ export default function RoomDetailsModal({
                 onTouchStart={handleTouchStart}
                 onTouchMove={handleTouchMove}
                 onTouchEnd={handleTouchEnd}
-                className="relative h-64 xs:h-72 sm:h-88 md:h-[420px] max-h-[55vh] rounded-2xl overflow-hidden border border-white/15 shadow-2xl bg-[#080d1a] flex items-center justify-center select-none group"
+                onDoubleClick={() => setIsFullScreen(true)}
+                title="Double click to view full screen"
+                className="relative h-64 xs:h-72 sm:h-88 md:h-[420px] max-h-[55vh] rounded-2xl overflow-hidden border border-white/15 shadow-2xl bg-[#080d1a] flex items-center justify-center select-none group cursor-zoom-in"
               >
                 {/* Soft ambient background fill */}
                 <img
@@ -211,17 +221,37 @@ export default function RoomDetailsModal({
                     <span>Photo {currentImageIndex + 1}/{imagesList.length}</span>
                   </div>
 
-                  {/* Rating Badge */}
-                  <div className="px-2.5 sm:px-3 py-1 rounded-full bg-[#0B1220]/90 backdrop-blur-md text-[#FAF7F0] text-[10px] sm:text-xs font-bold flex items-center gap-1 sm:gap-1.5 border border-white/15 shadow-lg shrink-0">
-                    <Star className="w-3 h-3 sm:w-3.5 sm:h-3.5 text-[#D4A64A] fill-[#D4A64A]" />
-                    <span>4.9 <span className="hidden xs:inline font-normal text-[#FAF7F0]/80">(140+)</span></span>
+                  <div className="flex items-center gap-1.5">
+                    {/* Fullscreen Expand Button */}
+                    <button
+                      type="button"
+                      onClick={(e) => {
+                        e.stopPropagation();
+                        setIsFullScreen(true);
+                      }}
+                      aria-label="Open fullscreen photo viewer"
+                      title="Double click photo or click to view Fullscreen"
+                      className="px-2.5 sm:px-3 py-1 rounded-full bg-[#0B1220]/90 hover:bg-[#D4A64A] text-[#FAF7F0] hover:text-[#0B1220] text-[10px] sm:text-xs font-bold flex items-center gap-1.5 border border-white/20 hover:border-[#D4A64A] transition-all cursor-pointer shadow-lg active:scale-95 pointer-events-auto"
+                    >
+                      <Maximize2 className="w-3 h-3 sm:w-3.5 sm:h-3.5 stroke-[2.5]" />
+                      <span className="hidden xs:inline">Fullscreen</span>
+                    </button>
+
+                    {/* Rating Badge */}
+                    <div className="px-2.5 sm:px-3 py-1 rounded-full bg-[#0B1220]/90 backdrop-blur-md text-[#FAF7F0] text-[10px] sm:text-xs font-bold flex items-center gap-1 sm:gap-1.5 border border-white/15 shadow-lg shrink-0">
+                      <Star className="w-3 h-3 sm:w-3.5 sm:h-3.5 text-[#D4A64A] fill-[#D4A64A]" />
+                      <span>4.9 <span className="hidden xs:inline font-normal text-[#FAF7F0]/80">(140+)</span></span>
+                    </div>
                   </div>
                 </div>
 
                 {/* Left Navigation Arrow */}
                 <button
                   type="button"
-                  onClick={handlePrevImage}
+                  onClick={(e) => {
+                    e.stopPropagation();
+                    handlePrevImage();
+                  }}
                   aria-label="Previous photo (Left Arrow)"
                   title="Previous Photo (Left Arrow Key)"
                   className="absolute left-2 sm:left-4 top-1/2 -translate-y-1/2 w-9 h-9 sm:w-11 sm:h-11 rounded-full bg-[#0B1220]/80 hover:bg-[#0B1220] active:scale-95 text-white flex items-center justify-center transition-all border border-white/25 hover:border-[#D4A64A] shadow-2xl hover:scale-105 z-10 cursor-pointer backdrop-blur-md"
@@ -232,7 +262,10 @@ export default function RoomDetailsModal({
                 {/* Right Navigation Arrow */}
                 <button
                   type="button"
-                  onClick={handleNextImage}
+                  onClick={(e) => {
+                    e.stopPropagation();
+                    handleNextImage();
+                  }}
                   aria-label="Next photo (Right Arrow)"
                   title="Next Photo (Right Arrow Key)"
                   className="absolute right-2 sm:right-4 top-1/2 -translate-y-1/2 w-9 h-9 sm:w-11 sm:h-11 rounded-full bg-[#0B1220]/80 hover:bg-[#0B1220] active:scale-95 text-white flex items-center justify-center transition-all border border-white/25 hover:border-[#D4A64A] shadow-2xl hover:scale-105 z-10 cursor-pointer backdrop-blur-md"
@@ -248,7 +281,10 @@ export default function RoomDetailsModal({
                       <button
                         key={idx}
                         type="button"
-                        onClick={() => setCurrentImageIndex(idx)}
+                        onClick={(e) => {
+                          e.stopPropagation();
+                          setCurrentImageIndex(idx);
+                        }}
                         aria-label={`Go to photo ${idx + 1}`}
                         className={`transition-all rounded-full cursor-pointer shrink-0 ${
                           currentImageIndex === idx
@@ -266,8 +302,8 @@ export default function RoomDetailsModal({
               {/* Keyboard & Swipe Hint Bar */}
               <div className="flex items-center justify-between text-[10px] sm:text-[11px] font-mono text-[#FAF7F0]/60 px-1">
                 <span>
-                  <span className="sm:hidden">👆 Swipe or tap arrows to browse</span>
-                  <span className="hidden sm:inline">⌨️ Press <kbd className="px-1.5 py-0.5 rounded bg-white/10 text-[#D4A64A] font-bold">←</kbd> <kbd className="px-1.5 py-0.5 rounded bg-white/10 text-[#D4A64A] font-bold">→</kbd> arrows or click sides to navigate</span>
+                  <span className="sm:hidden">👆 Double-tap for fullscreen • Swipe to browse</span>
+                  <span className="hidden sm:inline">💡 Double click image for Fullscreen • <kbd className="px-1.5 py-0.5 rounded bg-white/10 text-[#D4A64A] font-bold">←</kbd> <kbd className="px-1.5 py-0.5 rounded bg-white/10 text-[#D4A64A] font-bold">→</kbd> arrows or click sides</span>
                 </span>
                 <span>{imagesList.length} Photos</span>
               </div>
@@ -404,6 +440,123 @@ export default function RoomDetailsModal({
           </div>
         </motion.div>
       </div>
+
+      {/* FULLSCREEN LIGHTBOX PHOTO VIEWER */}
+      <AnimatePresence>
+        {isFullScreen && (
+          <motion.div
+            initial={{ opacity: 0 }}
+            animate={{ opacity: 1 }}
+            exit={{ opacity: 0 }}
+            transition={{ duration: 0.25 }}
+            className="fixed inset-0 z-[100005] bg-[#050914]/98 backdrop-blur-3xl flex flex-col justify-between p-3 sm:p-6 select-none pointer-events-auto"
+            onTouchStart={handleTouchStart}
+            onTouchMove={handleTouchMove}
+            onTouchEnd={handleTouchEnd}
+          >
+            {/* Top Bar */}
+            <div className="flex items-center justify-between gap-3 text-white z-20 shrink-0 pb-3 border-b border-white/10">
+              <div className="flex items-center gap-2.5 min-w-0">
+                <span className="px-3 py-1 rounded-full bg-[#D4A64A]/20 text-[#D4A64A] text-xs font-mono font-bold border border-[#D4A64A]/40 shrink-0">
+                  Photo {currentImageIndex + 1} of {imagesList.length}
+                </span>
+                <span className="text-sm sm:text-base font-bold font-sora text-[#FAF7F0] truncate hidden xs:inline">
+                  {room.name}
+                </span>
+              </div>
+
+              <div className="flex items-center gap-3">
+                <span className="text-[11px] font-mono text-white/50 hidden md:inline">
+                  Double-click or press Esc to exit
+                </span>
+                <button
+                  type="button"
+                  onClick={() => setIsFullScreen(false)}
+                  aria-label="Exit full screen mode"
+                  className="px-3.5 py-1.5 rounded-xl bg-white/10 hover:bg-red-500/80 text-white text-xs font-bold flex items-center gap-1.5 border border-white/20 hover:border-red-400 transition-all cursor-pointer shadow-lg active:scale-95"
+                >
+                  <X className="w-4 h-4 stroke-[2.5]" />
+                  <span>Exit Fullscreen</span>
+                </button>
+              </div>
+            </div>
+
+            {/* Central Stage */}
+            <div className="relative flex-1 flex items-center justify-center min-h-0 py-2 sm:py-4">
+              {/* Soft ambient backlight glow */}
+              <img
+                src={imagesList[currentImageIndex]}
+                alt=""
+                aria-hidden="true"
+                className="absolute inset-0 w-full h-full object-cover blur-3xl opacity-25 scale-110 pointer-events-none"
+              />
+
+              {/* Active Fullscreen Photo */}
+              <motion.img
+                key={currentImageIndex}
+                initial={{ opacity: 0.6, scale: 0.98 }}
+                animate={{ opacity: 1, scale: 1 }}
+                exit={{ opacity: 0.6, scale: 0.98 }}
+                transition={{ duration: 0.2 }}
+                src={imagesList[currentImageIndex]}
+                alt={`${room.name} Photo ${currentImageIndex + 1}`}
+                onDoubleClick={() => setIsFullScreen(false)}
+                className="relative z-10 max-h-[74vh] max-w-[92vw] object-contain rounded-xl drop-shadow-[0_20px_50px_rgba(0,0,0,0.9)] cursor-zoom-out"
+                title="Double click to exit fullscreen"
+              />
+
+              {/* Left Arrow Button */}
+              <button
+                type="button"
+                onClick={handlePrevImage}
+                aria-label="Previous photo (Left Arrow)"
+                className="absolute left-2 sm:left-6 top-1/2 -translate-y-1/2 w-12 h-12 sm:w-16 sm:h-16 rounded-full bg-[#0B1220]/80 hover:bg-[#D4A64A] text-white hover:text-[#0B1220] flex items-center justify-center transition-all border border-white/25 hover:border-[#D4A64A] shadow-2xl hover:scale-110 active:scale-95 z-20 cursor-pointer backdrop-blur-md group"
+              >
+                <ChevronLeft className="w-7 h-7 sm:w-9 sm:h-9 stroke-[2.5] group-hover:-translate-x-0.5 transition-transform" />
+              </button>
+
+              {/* Right Arrow Button */}
+              <button
+                type="button"
+                onClick={handleNextImage}
+                aria-label="Next photo (Right Arrow)"
+                className="absolute right-2 sm:right-6 top-1/2 -translate-y-1/2 w-12 h-12 sm:w-16 sm:h-16 rounded-full bg-[#0B1220]/80 hover:bg-[#D4A64A] text-white hover:text-[#0B1220] flex items-center justify-center transition-all border border-white/25 hover:border-[#D4A64A] shadow-2xl hover:scale-110 active:scale-95 z-20 cursor-pointer backdrop-blur-md group"
+              >
+                <ChevronRight className="w-7 h-7 sm:w-9 sm:h-9 stroke-[2.5] group-hover:translate-x-0.5 transition-transform" />
+              </button>
+            </div>
+
+            {/* Bottom Strip: Thumbnails & Navigation Hint */}
+            <div className="z-20 shrink-0 pt-2 border-t border-white/10 flex flex-col items-center gap-2">
+              <div className="flex items-center gap-2 overflow-x-auto max-w-full p-1 no-scrollbar">
+                {imagesList.map((img, idx) => (
+                  <button
+                    key={idx}
+                    type="button"
+                    onClick={() => setCurrentImageIndex(idx)}
+                    aria-label={`Jump to photo ${idx + 1}`}
+                    className={`relative w-12 h-10 sm:w-16 sm:h-12 rounded-lg overflow-hidden border-2 transition-all cursor-pointer shrink-0 ${
+                      currentImageIndex === idx
+                        ? 'border-[#D4A64A] scale-105 shadow-[0_0_15px_rgba(212,166,74,0.6)]'
+                        : 'border-white/20 opacity-60 hover:opacity-100'
+                    }`}
+                  >
+                    <img
+                      src={img}
+                      alt={`Thumb ${idx + 1}`}
+                      className="w-full h-full object-cover"
+                    />
+                  </button>
+                ))}
+              </div>
+
+              <div className="text-[11px] font-mono text-[#FAF7F0]/60 flex items-center gap-3">
+                <span>⌨️ Press <kbd className="px-1.5 py-0.5 rounded bg-white/10 text-[#D4A64A] font-bold">←</kbd> <kbd className="px-1.5 py-0.5 rounded bg-white/10 text-[#D4A64A] font-bold">→</kbd> arrows or swipe to browse photos</span>
+              </div>
+            </div>
+          </motion.div>
+        )}
+      </AnimatePresence>
     </div>,
     document.body
   );
