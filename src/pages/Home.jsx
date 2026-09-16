@@ -357,6 +357,7 @@ export default function Home({ onOpenBooking, onSelectRoom }) {
                     }}
                     className="w-full h-full object-cover object-center transition-transform duration-500 group-hover:scale-105"
                     loading="lazy"
+                    decoding="async"
                   />
                   <div className="absolute top-3 left-3 px-3 py-1 rounded-full bg-[#0B1220]/80 backdrop-blur-md text-[#D4A64A] border border-[#D4A64A]/30 text-[10px] font-bold font-mono">
                     {room.badge}

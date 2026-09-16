@@ -215,22 +215,40 @@ textarea:focus-visible,
 ::-webkit-scrollbar-thumb:hover {
   background: rgba(212, 166, 74, 0.7);
 }
-/* Natural hardware-accelerated scrolling with instant wheel response */
+/* 60FPS Ultra-Smooth GPU Hardware-Accelerated Scrolling */
 html {
   scroll-padding-top: 110px;
   scrollbar-gutter: stable;
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
   text-rendering: optimizeLegibility;
+  scroll-behavior: smooth;
 }
-.overflow-y-auto { overscroll-behavior-y: contain; }
+
+body {
+  -webkit-overflow-scrolling: touch;
+}
+
+img {
+  image-rendering: auto;
+  transform: translateZ(0);
+}
+
+.overflow-y-auto { 
+  overscroll-behavior-y: contain; 
+  -webkit-overflow-scrolling: touch;
+}
+
 @media (prefers-reduced-motion: reduce) {
   html { scroll-behavior: auto; }
   *, *::before, *::after { animation-duration: 0.01ms !important; animation-iteration-count: 1 !important; transition-duration: 0.01ms !important; }
 }
-@media (hover: none), (prefers-reduced-motion: reduce) {
-  .glass-card, .glass-card-glow { backdrop-filter: none; -webkit-backdrop-filter: none; }
-  .glass-card-hover:hover { transform: none; }
+
+@media (hover: none) {
+  .glass-card, .glass-card-glow { 
+    backdrop-filter: blur(8px); 
+    -webkit-backdrop-filter: blur(8px); 
+  }
 }
 
 /* Auto margins center short dialogs and leave tall dialogs reachable. */

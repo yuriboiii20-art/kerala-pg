@@ -1,14 +1,14 @@
 import { useId } from 'react';
 import { AbsoluteFill, Easing, interpolate, useCurrentFrame } from 'remotion';
 
-export const LOGO_DURATION = 240;
+export const LOGO_DURATION = 150;
 const gold = '#D4A64A';
 const ivory = '#FAF7F0';
 const timing = { extrapolateLeft: 'clamp', extrapolateRight: 'clamp', easing: Easing.bezier(0.22, 1, 0.36, 1) };
 const house = 'M 550 195 L 610 315 L 569 315 L 569 270 L 531 270 L 531 315 L 490 315 Z';
 
 export function LogoArtwork({ frame: elapsedFrame = LOGO_DURATION - 1, caption = 'FIND YOUR STAY' }) {
-  const frame = elapsedFrame / 1.5;
+  const frame = elapsedFrame * 1.15;
   const id = useId().replace(/:/g, '');
   return (
     <svg viewBox="0 0 1400 600" width="100%" height="100%" role="img" aria-label="Kerala PG — FIND YOUR STAY">

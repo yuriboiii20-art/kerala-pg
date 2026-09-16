@@ -233,6 +233,7 @@ export default function RoomsPage({ onOpenBooking }) {
                             }}
                             className="w-full h-full object-cover object-center transition-transform duration-500"
                             loading="lazy"
+                            decoding="async"
                           />
                           <div className="absolute top-3 left-3 px-3 py-1 rounded-full bg-[#0B1220]/85 backdrop-blur-md text-[#D4A64A] border border-[#D4A64A]/30 text-xs font-bold font-mono">
                             {plan.badge}
