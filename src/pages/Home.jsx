@@ -22,7 +22,7 @@ import StayPlanModal from '../components/BookingFlow/StayPlanModal';
 import FindSpaceLogo from '../components/FindSpaceLogo';
 import { locations } from '../data/locationsData';
 
-export default function Home({ onOpenBooking }) {
+export default function Home({ onOpenBooking, onSelectRoom }) {
   const [activeHotspot, setActiveHotspot] = useState(null);
   const [activeFaq, setActiveFaq] = useState(null);
   const [roomCategoryTab, setRoomCategoryTab] = useState('all');
@@ -78,6 +78,13 @@ export default function Home({ onOpenBooking }) {
   // FAQ Quick Search & Filter
   const [faqSearch, setFaqSearch] = useState('');
 
+  const aafa1BhkImages = [
+    "/images/1r.jpeg", "/images/2r.jpeg", "/images/3r.jpeg", "/images/4r.jpeg",
+    "/images/5r.jpeg", "/images/6r.jpeg", "/images/7r.jpeg", "/images/8r.jpeg",
+    "/images/9r.jpeg", "/images/10r.jpeg", "/images/11r.jpeg", "/images/12r.jpeg",
+    "/images/13r.jpeg", "/images/14r.jpeg", "/images/15r.jpeg"
+  ];
+
   // 4 Interactive Room Feature Hotspots
   const roomHotspots = [
     {
@@ -119,6 +126,7 @@ export default function Home({ onOpenBooking }) {
       price: '₹18,000',
       period: 'month',
       image: '/images/1r.jpeg',
+      images: aafa1BhkImages,
       badge: '18k Rent • 18k Deposit',
       desc: 'Aafa Suites Hotel Near By Infosys, 3rd Cross Rd, Krishna Reddy Layout, Electronic City. Fully furnished 1 BHK with hall, bed & kitchenette.',
       highlights: ['18k Rent • 18k Deposit', 'Near By Infosys, Electronic City', '1 BHK Fully Furnished', 'Power Back Up & WiFi']
@@ -129,7 +137,11 @@ export default function Home({ onOpenBooking }) {
       type: 'daily',
       price: '₹499',
       period: 'day',
-      image: '/images/1pg.jpeg',
+      image: '/images/7pg.jpeg',
+      images: [
+        '/images/7pg.jpeg',
+        '/images/8pg.jpeg'
+      ],
       badge: 'Breakfast Free',
       desc: 'Clean furnished room + free hot Kerala breakfast (Puttu/Dosa/Idli) every morning near HCL Gate 2.',
       highlights: ['Hot Kerala Breakfast', 'High-Speed WiFi', 'Near HCL Gate 2', 'Zero Security Deposit']
@@ -141,6 +153,10 @@ export default function Home({ onOpenBooking }) {
       price: '₹11,499',
       period: 'month',
       image: '/images/1pg.jpeg',
+      images: [
+        '/images/1pg.jpeg',
+        '/images/8pg.jpeg'
+      ],
       badge: '100% Private',
       desc: 'Dedicated private single room with attached bath, study desk, power backup, and 3 times Kerala food.',
       highlights: ['3x Daily Kerala Meals', 'Attached Western Bath', 'Power Back Up', 'High-Speed WiFi']
@@ -151,7 +167,11 @@ export default function Home({ onOpenBooking }) {
       type: 'sharing',
       price: '₹7,499',
       period: 'month',
-      image: '/images/1pg.jpeg',
+      image: '/images/7pg.jpeg',
+      images: [
+        '/images/7pg.jpeg',
+        '/images/8pg.jpeg'
+      ],
       badge: 'Most Popular',
       desc: 'Spacious twin sharing room with wardrobe storage, lounge access, washing machine, and 3 times meals.',
       highlights: ['3x Daily Kerala Food', 'Lounge & Entertainment', 'Washing Machine', '24/7 Hot Water']
@@ -162,7 +182,11 @@ export default function Home({ onOpenBooking }) {
       type: 'sharing',
       price: '₹5,999',
       period: 'month',
-      image: '/images/1pg.jpeg',
+      image: '/images/3sharing.png',
+      images: [
+        '/images/3sharing.png',
+        '/images/8pg.jpeg'
+      ],
       badge: 'Value Saver',
       desc: 'Comfortable 3 sharing room setup in Sannidhi layout, Jigani with full facilities and caretaker support.',
       highlights: ['3x Daily Kerala Food', 'Power Back Up', 'Self Cooking Area', 'High-Speed WiFi']
@@ -173,7 +197,11 @@ export default function Home({ onOpenBooking }) {
       type: 'sharing',
       price: '₹4,999',
       period: 'month',
-      image: '/images/1pg.jpeg',
+      image: '/images/4share.png',
+      images: [
+        '/images/4share.png',
+        '/images/8pg.jpeg'
+      ],
       badge: 'Budget Saver',
       desc: 'Affordable 4 sharing room with individual charging points, power backup, and 3 times fresh meals.',
       highlights: ['3x Daily Kerala Meals', 'CCTV & Caretaker', 'Washing Machine', 'WiFi & Power Backup']
@@ -315,7 +343,8 @@ export default function Home({ onOpenBooking }) {
               animate={{ opacity: 1, y: 0 }}
               exit={{ opacity: 0, scale: 0.95 }}
               transition={{ duration: 0.35, delay: idx * 0.04 }}
-              className="glass-card glass-card-hover rounded-3xl p-5 border border-white/10 flex flex-col justify-between group overflow-hidden"
+              className="glass-card glass-card-hover rounded-3xl p-5 border border-white/10 flex flex-col justify-between group overflow-hidden cursor-pointer"
+              onClick={() => onSelectRoom && onSelectRoom(room)}
             >
               <div>
                 <div className="relative h-48 sm:h-52 rounded-2xl overflow-hidden mb-4 border border-white/10 bg-[#080d1a]">
@@ -326,7 +355,7 @@ export default function Home({ onOpenBooking }) {
                       e.currentTarget.onerror = null;
                       e.currentTarget.src = 'https://images.unsplash.com/photo-1522771739844-6a9f6d5f14af?auto=format&fit=crop&w=800&q=80';
                     }}
-                    className="w-full h-full object-cover object-center transition-transform duration-500"
+                    className="w-full h-full object-cover object-center transition-transform duration-500 group-hover:scale-105"
                     loading="lazy"
                   />
                   <div className="absolute top-3 left-3 px-3 py-1 rounded-full bg-[#0B1220]/80 backdrop-blur-md text-[#D4A64A] border border-[#D4A64A]/30 text-[10px] font-bold font-mono">
@@ -334,7 +363,7 @@ export default function Home({ onOpenBooking }) {
                   </div>
                 </div>
 
-                <h4 className="text-base font-bold font-sora text-[#FAF7F0] mb-1">
+                <h4 className="text-base font-bold font-sora text-[#FAF7F0] mb-1 group-hover:text-[#D4A64A] transition-colors">
                   {room.title}
                 </h4>
                 <p className="text-xs text-[#FAF7F0]/70 leading-relaxed mb-3 line-clamp-2">
