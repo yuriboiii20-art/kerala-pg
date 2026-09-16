@@ -194,8 +194,20 @@ export default function MatchingRoomsSection({
                   }`}
                 >
                   <div>
-                    {/* Room Image Container */}
-                    <div className="relative h-52 rounded-2xl overflow-hidden mb-4 border border-white/10 bg-[#080d1a]">
+                    {/* Room Image Container - Click to view details */}
+                    <div
+                      onClick={() => onViewDetails && onViewDetails(room)}
+                      onKeyDown={(e) => {
+                        if (e.key === 'Enter' || e.key === ' ') {
+                          e.preventDefault();
+                          onViewDetails && onViewDetails(room);
+                        }
+                      }}
+                      role="button"
+                      tabIndex={0}
+                      aria-label={`View details for ${room.name}`}
+                      className="relative h-52 rounded-2xl overflow-hidden mb-4 border border-white/10 bg-[#080d1a] cursor-pointer group/img select-none focus:outline-none focus-visible:ring-2 focus-visible:ring-[#D4A64A]"
+                    >
                       <img
                         src={room.image}
                         alt={room.name}
@@ -204,12 +216,20 @@ export default function MatchingRoomsSection({
                           e.currentTarget.src =
                             'https://images.unsplash.com/photo-1522771739844-6a9f6d5f14af?auto=format&fit=crop&w=600&q=80';
                         }}
-                        className="w-full h-full object-cover object-center transition-transform duration-500"
+                        className="w-full h-full object-cover object-center transition-transform duration-500 group-hover/img:scale-105"
                         loading="lazy"
                       />
 
+                      {/* Hover Overlay with Quick View Hint */}
+                      <div className="absolute inset-0 bg-black/35 opacity-0 group-hover/img:opacity-100 transition-opacity duration-300 flex items-center justify-center pointer-events-none">
+                        <span className="px-3.5 py-1.5 rounded-full bg-[#0B1220]/90 backdrop-blur-md text-xs font-bold text-[#D4A64A] border border-[#D4A64A]/40 flex items-center gap-1.5 shadow-xl transform translate-y-1 group-hover/img:translate-y-0 transition-transform duration-300">
+                          <Eye className="w-3.5 h-3.5" />
+                          <span>View Details</span>
+                        </span>
+                      </div>
+
                       {/* Top Badges */}
-                      <div className="absolute top-3 left-3 flex flex-wrap items-center gap-1.5">
+                      <div className="absolute top-3 left-3 flex flex-wrap items-center gap-1.5 pointer-events-none">
                         <span className="px-2.5 py-1 rounded-lg bg-[#0B1220]/90 backdrop-blur-md text-[#D4A64A] text-[10px] font-mono font-bold border border-[#D4A64A]/30">
                           {room.genderLabel}
                         </span>
@@ -219,7 +239,7 @@ export default function MatchingRoomsSection({
                       </div>
 
                       {/* Rating & Availability */}
-                      <div className="absolute top-3 right-3 flex items-center gap-1.5">
+                      <div className="absolute top-3 right-3 flex items-center gap-1.5 pointer-events-none">
                         <span className="px-2.5 py-1 rounded-lg bg-[#0B1220]/90 backdrop-blur-md text-white text-[10px] font-bold flex items-center gap-1 border border-white/15">
                           <Star className="w-3 h-3 text-[#D4A64A] fill-[#D4A64A]" />
                           <span>{room.rating}</span>
@@ -227,7 +247,7 @@ export default function MatchingRoomsSection({
                       </div>
 
                       {/* Availability banner */}
-                      <div className="absolute bottom-2 left-2 px-2.5 py-0.5 rounded-md bg-[#0B1220]/95 text-emerald-400 text-[10px] font-mono font-semibold flex items-center gap-1 border border-emerald-500/20">
+                      <div className="absolute bottom-2 left-2 px-2.5 py-0.5 rounded-md bg-[#0B1220]/95 text-emerald-400 text-[10px] font-mono font-semibold flex items-center gap-1 border border-emerald-500/20 pointer-events-none">
                         <span className="w-1.5 h-1.5 rounded-full bg-emerald-400 animate-ping" />
                         <span>Move-In Ready</span>
                       </div>
@@ -239,7 +259,18 @@ export default function MatchingRoomsSection({
                       <span className="truncate">{room.area}</span>
                     </div>
 
-                    <h4 className="text-base font-bold font-sora text-[#FAF7F0] mb-1.5 line-clamp-1 group-hover:text-[#D4A64A] transition-colors">
+                    <h4
+                      onClick={() => onViewDetails && onViewDetails(room)}
+                      role="button"
+                      tabIndex={0}
+                      onKeyDown={(e) => {
+                        if (e.key === 'Enter' || e.key === ' ') {
+                          e.preventDefault();
+                          onViewDetails && onViewDetails(room);
+                        }
+                      }}
+                      className="text-base font-bold font-sora text-[#FAF7F0] mb-1.5 line-clamp-1 group-hover:text-[#D4A64A] transition-colors cursor-pointer focus:outline-none"
+                    >
                       {room.name}
                     </h4>
 
