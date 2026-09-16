@@ -601,11 +601,10 @@ export default function Home({ onOpenBooking }) {
               transition={{ duration: 0.5 }}
               className="lg:w-7/12 flex flex-col items-start text-left"
             >
-              {/* Top Pill Badge */}
-              <div className="inline-flex items-center gap-2.5 px-4 py-1.5 sm:px-4.5 sm:py-2 rounded-full glass-pill text-[#D4A64A] text-xs sm:text-[13px] font-semibold uppercase tracking-wider mb-3.5 shadow-sm">
-                <FindSpaceLogo className="w-4 h-4 sm:w-4.5 sm:h-4.5" />
-                <span>PAN-INDIA • 300m to HCL Gate</span>
-              </div>
+              {/* Main Headline */}
+              <h1 className="text-3xl sm:text-4xl lg:text-5xl font-extrabold uppercase tracking-tight text-[#FAF7F0] mb-3.5 font-sora">
+                FIND YOUR <span className="text-gradient-gold">STAY</span>
+              </h1>
 
               {/* Main Description Paragraph */}
               <p className="text-[#FAF7F0]/90 text-sm sm:text-base lg:text-lg font-normal leading-relaxed mb-5 max-w-2xl font-sora">

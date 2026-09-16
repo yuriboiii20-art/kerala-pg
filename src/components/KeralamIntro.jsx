@@ -68,9 +68,6 @@ export default function KeralamIntro() {
           style={{ width: '100%' }}
         />
       </div>
-      <button className="keralam-intro__skip" onClick={dismiss}>
-        Skip intro <span aria-hidden="true">↗</span>
-      </button>
     </div>
   );
 }
