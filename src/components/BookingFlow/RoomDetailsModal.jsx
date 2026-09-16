@@ -206,8 +206,8 @@ export default function RoomDetailsModal({
                 onTouchStart={handleTouchStart}
                 onTouchMove={handleTouchMove}
                 onTouchEnd={handleTouchEnd}
-                onDoubleClick={() => setIsFullScreen(true)}
-                title="Double click to view full screen"
+                onClick={() => setIsFullScreen(true)}
+                title="Click photo to view full screen"
                 className="relative h-64 xs:h-72 sm:h-88 md:h-[420px] max-h-[55vh] rounded-2xl overflow-hidden border border-white/15 shadow-2xl bg-[#080d1a] flex items-center justify-center select-none group cursor-zoom-in"
               >
                 {/* Soft ambient background fill */}
@@ -298,8 +298,8 @@ export default function RoomDetailsModal({
               {/* Keyboard & Swipe Hint Bar */}
               <div className="flex items-center justify-between text-[10px] sm:text-[11px] font-mono text-[#FAF7F0]/60 px-1">
                 <span>
-                  <span className="sm:hidden">👆 Double-tap for fullscreen • Swipe to browse</span>
-                  <span className="hidden sm:inline">💡 Double click image for Fullscreen • <kbd className="px-1.5 py-0.5 rounded bg-white/10 text-[#D4A64A] font-bold">←</kbd> <kbd className="px-1.5 py-0.5 rounded bg-white/10 text-[#D4A64A] font-bold">→</kbd> arrows or click sides</span>
+                  <span className="sm:hidden">👆 Tap photo for fullscreen • Swipe to browse</span>
+                  <span className="hidden sm:inline">💡 Click photo for Fullscreen • <kbd className="px-1.5 py-0.5 rounded bg-white/10 text-[#D4A64A] font-bold">←</kbd> <kbd className="px-1.5 py-0.5 rounded bg-white/10 text-[#D4A64A] font-bold">→</kbd> arrows or swipe to browse</span>
                 </span>
                 <span>{imagesList.length} Photos</span>
               </div>
@@ -496,9 +496,9 @@ export default function RoomDetailsModal({
                 transition={{ duration: 0.2 }}
                 src={imagesList[currentImageIndex]}
                 alt={`${room.name} Photo ${currentImageIndex + 1}`}
-                onDoubleClick={() => setIsFullScreen(false)}
+                onClick={() => setIsFullScreen(false)}
                 className="relative z-10 max-h-[74vh] max-w-[92vw] object-contain rounded-xl drop-shadow-[0_20px_50px_rgba(0,0,0,0.9)] cursor-zoom-out"
-                title="Double click to exit fullscreen"
+                title="Click photo to exit fullscreen"
               />
 
               {/* Left Arrow Button */}

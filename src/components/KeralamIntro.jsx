@@ -32,8 +32,8 @@ export default function KeralamIntro() {
     instance?.addEventListener('frameupdate', onFrame);
     preference.addEventListener('change', onPreference);
 
-    // Fail open safely after 3.2s max
-    const timeout = window.setTimeout(dismiss, 3200);
+    // Fail open safely after 2.1s max (increased speed by 1s)
+    const timeout = window.setTimeout(dismiss, 2100);
     return () => {
       instance?.removeEventListener('ended', dismiss);
       instance?.removeEventListener('error', dismiss);

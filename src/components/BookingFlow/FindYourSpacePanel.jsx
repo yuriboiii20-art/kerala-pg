@@ -93,8 +93,8 @@ export default function FindYourSpacePanel({
           </div>
         </div>
 
-        {/* Stay Type Segmented Switcher (Day Stay | Weekly | Monthly) */}
-        <div className="flex w-full md:w-auto items-center justify-between sm:justify-start gap-1 p-1 rounded-2xl bg-[#10192B] border border-white/10 overflow-x-auto no-scrollbar">
+        {/* Stay Type Segmented Switcher (Day Stay | Weekly | Monthly) - Fixed non-sliding 3-column grid on mobile */}
+        <div className="grid grid-cols-3 w-full md:w-auto md:flex items-center gap-1 p-1 rounded-2xl bg-[#10192B] border border-white/10 shrink-0">
           {[
             { id: 'day', label: 'Day Stay', badge: '₹499/d' },
             { id: 'week', label: 'Weekly Stay', badge: 'Flexi' },
@@ -106,17 +106,17 @@ export default function FindYourSpacePanel({
                 key={tab.id}
                 type="button"
                 onClick={() => setStayType(tab.id)}
-                className={`flex-1 sm:flex-initial px-2.5 py-1.5 sm:px-3.5 sm:py-2 rounded-xl text-[11px] sm:text-xs font-bold transition-all flex items-center justify-center gap-1 sm:gap-1.5 cursor-pointer whitespace-nowrap relative ${
+                className={`w-full md:w-auto px-1.5 xs:px-2.5 py-1.5 sm:px-3.5 sm:py-2 rounded-xl text-[10px] xs:text-[11px] sm:text-xs font-bold transition-all flex flex-col xs:flex-row items-center justify-center gap-0.5 xs:gap-1.5 cursor-pointer relative text-center ${
                   isActive
                     ? 'bg-gradient-to-r from-[#D4A64A] to-amber-500 text-[#0B1220] shadow-md shadow-[#D4A64A]/25'
                     : 'text-white/60 hover:text-white hover:bg-white/5'
                 }`}
               >
-                <span>{tab.label}</span>
+                <span className="truncate xs:overflow-visible">{tab.label}</span>
                 <span
-                  className={`text-[9px] px-1.5 py-0.2 rounded-md font-mono ${
+                  className={`text-[8px] xs:text-[9px] px-1 xs:px-1.5 py-0.2 rounded-md font-mono shrink-0 ${
                     isActive
-                      ? 'bg-[#0B1220]/20 text-[#0B1220] font-extrabold'
+                      ? 'bg-[#0B1220]/25 text-[#0B1220] font-extrabold'
                       : 'bg-white/10 text-[#D4A64A]'
                   }`}
                 >
